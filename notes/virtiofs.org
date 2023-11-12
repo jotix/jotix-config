@@ -1,0 +1,8 @@
+Error starting domain: operation failed: Unable to find a satisfying virtiofsd
+
+add virtiofsd into your systemPackages and add following into virt-manager filesystem xml:
+
+#+begin_src sh
+  <binary path="/run/current-system/sw/bin/virtiofsd"/>
+#+end_src
+
