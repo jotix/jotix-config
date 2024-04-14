@@ -8,7 +8,7 @@
   #   qutebrowser.enable = true;
   # };
 
-  gnome.enable = true;
+  plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
   #android-studio.enable = true;
