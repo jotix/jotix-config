@@ -8,4 +8,5 @@
   ];
 
   guile.enable = lib.mkDefault true;
+  python.enable = lib.mkDefault true;
 }

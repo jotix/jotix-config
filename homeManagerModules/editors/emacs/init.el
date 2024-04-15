@@ -1,5 +1,5 @@
 ;; emacs config file location
-(setq jtx-emacs-config-file "~/nixos-config/homeManagerModules/emacs/init.el")
+(setq jtx-emacs-config-file "~/nixos-config/homeManagerModules/editors/emacs/init.el")
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 

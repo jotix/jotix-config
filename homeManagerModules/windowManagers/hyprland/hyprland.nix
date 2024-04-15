@@ -120,6 +120,7 @@
         # window rules
         windowrulev2 = [
           "workspace 2, class:^(firefox)$"
+          "workspace 3, class:^(emacs)$"
         ];
         "$mainMod" = "SUPER";
         bind = [
