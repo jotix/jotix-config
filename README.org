@@ -54,3 +54,7 @@ run the script:
 #+begin_src sh
 $ ./scripts/set-jotix-password.sh
 #+end_src
+
+** Final Steps
+
+Unmount the partitions, reboot, and enjoy the new system...
