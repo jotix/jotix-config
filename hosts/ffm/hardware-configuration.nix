@@ -10,26 +10,13 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/jtx-system";
-    fsType = "btrfs";
-    options = [ "subvol=nixos/root" ];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-label/jtx-system";
-    fsType = "btrfs";
-    options = [ "subvol=nixos/home" ];
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/JTX-EFI";
+    device = "/dev/disk/by-label/EFI";
     fsType = "vfat";
-  };
-
-  fileSystems."/mnt/jtx-system" = {
-    device = "/dev/disk/by-label/jtx-system";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
   };
 
   fileSystems."/mnt/Ventoy" = {
