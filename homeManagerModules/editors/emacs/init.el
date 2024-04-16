@@ -219,6 +219,9 @@
 
 (add-hook 'vterm-mode-hook 'jtx/vterm-hook)
 
+;; slime
+(setq inferior-lisp-program "sbcl")
+
 ;; custom functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun jtx/org-present-prepare-slide (buffer-name heading)
