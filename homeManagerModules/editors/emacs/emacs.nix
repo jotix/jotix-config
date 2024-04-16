@@ -35,7 +35,6 @@
         magit
         eshell-git-prompt
         company
-        sly
         treemacs
         org-present
         visual-fill-column
