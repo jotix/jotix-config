@@ -5,7 +5,6 @@
 {
   imports = [
     ./desktops/default.nix
-    ./languages/default.nix
     ./services/default.nix
     ./systemConfiguration/default.nix
     ./systemPackages/default.nix
