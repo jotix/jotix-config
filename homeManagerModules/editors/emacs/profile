@@ -1,1 +1,1 @@
-colorscript -e pacman
+colorscript --random

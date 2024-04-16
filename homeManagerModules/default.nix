@@ -14,7 +14,7 @@
 
   programs.bash = {
     enable = true;
-    initExtra = "neofetch #colorscript --random";
+    initExtra = "colorscript --random";
   };
   
   programs.lazygit.enable = true;
