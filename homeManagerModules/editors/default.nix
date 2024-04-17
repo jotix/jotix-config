@@ -8,7 +8,6 @@
     ./helix.nix
   ];
 
-  emacs.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
   
 }
