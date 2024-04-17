@@ -21,6 +21,7 @@
         nvim-treesitter-parsers.python
         nvim-treesitter-parsers.haskell
         nvim-treesitter-parsers.c
+        nvim-treesitter-parsers.lua
         undotree
         nerdtree
         toggleterm-nvim
