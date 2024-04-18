@@ -2,7 +2,6 @@
 
 ## Requirements
 
-
 To proced with the installation the following partitions are required:
 
 - LABEL=EFI : FAT32, efi(ef00)
@@ -60,3 +59,4 @@ $ ./scripts/set-jotix-password.sh
 ## Final Steps
 
 Unmount the partitions, reboot, and enjoy the new system...
+
