@@ -24,14 +24,18 @@ $ sudo mount LABEL=EFI /mnt/boot/efi
 ## Update flake 
 
 Optional: to update the flake, run the following command:
+
 `
 $ nix flake update --extra-experimental-features 'nix-command flakes'
 `
+
 ## Install the new system
 
 To install the new system run the following command:
 
-    $ sudo nixos-install --flake .#[hostname]
+`
+$ sudo nixos-install --flake .#[hostname]
+`
 
 ## copy nixos-config folder to the new installation
 
