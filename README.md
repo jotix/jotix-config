@@ -10,11 +10,11 @@ To proced with the installation the following partitions are required:
 
 Format and mount the necesary partitions:
 
-'''
+```
 $ sudo mount LABEL=nixos /mnt
 $ sudo mkdir -p /mnt/boot/efi
 $ sudo mount LABEL=EFI /mnt/boot/efi 
-'''
+```
 
 ## hosts
 
@@ -24,9 +24,9 @@ $ sudo mount LABEL=EFI /mnt/boot/efi
 ## Update flake 
 
 Optional: to update the flake, run the following command:
-
-    $ nix flake update --extra-experimental-features 'nix-command flakes'
-
+`
+$ nix flake update --extra-experimental-features 'nix-command flakes'
+`
 ## Install the new system
 
 To install the new system run the following command:
