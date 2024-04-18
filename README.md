@@ -2,15 +2,18 @@
 
 ## Requirements
 
-## Format and mount the necesary partitions
 
 To proced with the installation the following partitions are required:
 
 - LABEL=EFI : FAT32, efi(ef00)
 - LABEL=nixos : the root filesystem for the new installation
 
+Format and mount the necesary partitions:
+
     $ sudo mount LABEL=nixos /mnt
+
     $ sudo mkdir -p /mnt/boot/efi
+    
     $ sudo mount LABEL=EFI /mnt/boot/efi 
 
 ## hosts
