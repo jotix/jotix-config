@@ -10,11 +10,11 @@ To proced with the installation the following partitions are required:
 
 Format and mount the necesary partitions:
 
-    $ sudo mount LABEL=nixos /mnt
-
-    $ sudo mkdir -p /mnt/boot/efi
-    
-    $ sudo mount LABEL=EFI /mnt/boot/efi 
+'''
+$ sudo mount LABEL=nixos /mnt
+$ sudo mkdir -p /mnt/boot/efi
+$ sudo mount LABEL=EFI /mnt/boot/efi 
+'''
 
 ## hosts
 
