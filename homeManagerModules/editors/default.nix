@@ -9,5 +9,5 @@
   ];
 
   neovim.enable = lib.mkDefault true;
-  
+  emacs.enable = lib.mkDefault true;  
 }
