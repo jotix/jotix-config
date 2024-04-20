@@ -3,6 +3,9 @@
 { config, pkgs, lib, ... }:
 
 {
+  home-manager.users.jotix = { 
+    emacs.enable = true;
+  };
 
   steam.enable = true;
   qmk.enable = true;
