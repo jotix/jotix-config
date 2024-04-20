@@ -13,7 +13,8 @@
         description = "jotix";
         extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       };
-      defaultUserShell = pkgs.fish;
+      defaultUserShell = pkgs.bash;
     };
   };
+
 }

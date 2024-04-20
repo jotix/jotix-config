@@ -23,8 +23,6 @@
       xclip
     ];
 
-    programs.fish.enable = true;
-
   };
 }
 
