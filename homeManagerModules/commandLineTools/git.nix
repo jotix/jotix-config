@@ -5,7 +5,8 @@
 {
   options.git.enable = lib.mkEnableOption "Enable Git";
   
-  config = lib.mkIf(config.git.enable) {    
+  config = lib.mkIf(config.git.enable) {
+
     programs.git = {
       enable = true;
       userName = "jotix";
@@ -22,5 +23,8 @@
         };
       };
     };
+
+    programs.lazygit.enable = true;
+
   };
 }

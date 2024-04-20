@@ -9,7 +9,7 @@
 
     programs.fish = {
       enable = true;
-      interactiveShellIni = "colorscript --random";
+      interactiveShellInit = "colorscript --random";
     };
 
   };

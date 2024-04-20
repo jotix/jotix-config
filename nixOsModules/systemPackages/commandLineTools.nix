@@ -6,6 +6,7 @@
   options.commandLineTools.enable = lib.mkEnableOption "Enable CommandLineTools";
 
   config = lib.mkIf(config.commandLineTools.enable) {
+
     environment.systemPackages = with pkgs; [
       zip
       unzip
@@ -21,6 +22,9 @@
       wl-clipboard
       xclip
     ];
+
+    programs.fish.enable = true;
+
   };
 }
 
