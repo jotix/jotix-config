@@ -1,4 +1,4 @@
-### Eza Module
+## Eza Module
 
 { config, lib, pkgs, ... }:
 

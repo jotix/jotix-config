@@ -4,11 +4,14 @@
 
 {
   imports = [
+    ./bash.nix
     ./eza.nix
+    ./fish.nix
     ./git.nix
     ./zoxide.nix
   ];
 
+  fish.enable = lib.mkDefault true;
   eza.enable = lib.mkDefault true;
   git.enable = lib.mkDefault true;
   zoxide.enable = lib.mkDefault true;
