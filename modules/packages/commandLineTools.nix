@@ -21,6 +21,11 @@
       fuse
       wl-clipboard
       xclip
+      eza
+      git
+      lazygit
+      powerline-go
+      neovim
     ];
 
   };

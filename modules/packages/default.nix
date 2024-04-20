@@ -27,6 +27,7 @@
     cmake
     gcc
     nixd
+    libvterm
   ];
 
   programs = {

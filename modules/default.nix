@@ -6,8 +6,8 @@
   imports = [
     ./desktops/default.nix
     ./services/default.nix
-    ./systemConfiguration/default.nix
-    ./systemPackages/default.nix
+    ./system/default.nix
+    ./packages/default.nix
   ];  
 
   nix = {
@@ -27,6 +27,6 @@
 
   security.pam.services.swaylock = {};
   
-  home-manager.backupFileExtension = "backup";
+  #home-manager.backupFileExtension = "backup";
 
 }

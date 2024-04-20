@@ -3,11 +3,6 @@
 { config, ... }:
 
 {
-  home-manager.users.jotix = { 
-    hyprland.enable = true;
-    qutebrowser.enable = true;
-  };
-
   #plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;

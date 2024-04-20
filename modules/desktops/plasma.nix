@@ -22,6 +22,7 @@
 
     environment.systemPackages = with pkgs; [
       digikam
+      kitty
       kdePackages.kate
       kdePackages.kcalc
       libsForQt5.kamoso
