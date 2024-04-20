@@ -4,6 +4,7 @@
   imports = [
     ./android-studio.nix
     ./commandLineTools.nix
+    ./emacs.nix
     ./fonts.nix
     ./guiApps.nix
     ./qmk.nix
@@ -12,6 +13,7 @@
   ];
 
   commandLineTools.enable = lib.mkDefault true;
+  emacs.enable = lib.mkDefault true;
   fonts.enable = lib.mkDefault true;
   guiApps.enable = lib.mkDefault true;
   virtualization.enable = lib.mkDefault true;
