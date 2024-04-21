@@ -26,6 +26,9 @@ alias lla='eza -la'
 alias ls='eza'
 alias lt='eza --tree'
 
+alias vim=nvim
+alias vi=nvim
+
 if [[ ! -v BASH_COMPLETION_VERSINFO ]]; then
   . "/nix/store/h7rc4ajxx8lrqg1i6cr8zhvz15rd2g0y-bash-completion-2.11/etc/profile.d/bash_completion.sh"
 fi
