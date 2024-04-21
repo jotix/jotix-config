@@ -7,9 +7,7 @@
 
   config = lib.mkIf(config.hyprland.enable) {
 
-    rofi.enable = lib.mkDefault true;
-
-    home.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       hyprland
       hyprshot
       hyprlock
@@ -27,6 +25,8 @@
       rofi-wayland
       xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
+      waybar
+      kitty
     ];
     
   };

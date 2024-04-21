@@ -4,8 +4,8 @@
 
 {
   imports = [
+    ./hyprland.nix
     ./plasma.nix
     ./gnome.nix
-    ./wayland.nix
   ];
 }
