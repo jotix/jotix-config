@@ -629,7 +629,10 @@ alias ll exa -hl $*
 alias la exa -ha $*
 alias lla exa -hla $*
 
-alias ff find-file $1 
+alias ff find-file $1
+
+alias cdc cd ~/nixos-config
+alias rebuild sudo nix-
 #+end_src
 ** profile
 #+begin_src sh :tangle ~/.emacs.d/eshell/profile

@@ -931,3 +931,36 @@ input-field {
   }
 ]
 #+end_src
+
+* gtk
+** gtk2
+#+begin_src conf :tangle ~/.gtkrc-2.0
+gtk-enable-animations=1
+gtk-theme-name="Numix"
+gtk-primary-button-warps-slider=1
+gtk-toolbar-style=3
+gtk-menu-images=1
+gtk-button-images=1
+gtk-cursor-theme-size=24
+gtk-font-name="Noto Sans,  10"
+gtk-cursor-theme-name = "Numix"
+gtk-font-name = "Ubuntu Condensed 10"
+gtk-icon-theme-name = "Numix"
+gtk-theme-name = "Numix"
+#+end_src
+** gtk3
+#+begin_src conf :tangle ~/.config/gtk-3.0
+[Settings]
+gtk-cursor-theme-name=Numix
+gtk-font-name=Ubuntu Condensed 10
+gtk-icon-theme-name=Numix
+gtk-theme-name=Numix
+#+end_src
+** gtk4
+#+begin_src conf :tangle ~/.config/gtk-4.0
+[Settings]
+gtk-cursor-theme-name=Numix
+gtk-font-name=Ubuntu Condensed 10
+gtk-icon-theme-name=Numix
+gtk-theme-name=Numix
+#+end_src
