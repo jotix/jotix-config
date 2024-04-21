@@ -3,7 +3,8 @@
 { config, ... }:
 
 {
-  #plasma.enable = true;
+  wayland.enable = true;
+  plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
   #android-studio.enable = true;
