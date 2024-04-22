@@ -37,7 +37,6 @@
       visual-fill-column
       geiser
       geiser-guile
-      slime
     ];
   };
 
