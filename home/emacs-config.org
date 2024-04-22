@@ -632,7 +632,8 @@ alias lla exa -hla $*
 alias ff find-file $1
 
 alias cdc cd ~/nixos-config
-alias rebuild sudo nix-
+alias rebuild sudo nixos-rebuild switch --flake .
+alias rebuild-boot sudo nixos-rebuild boot --flake .
 #+end_src
 ** profile
 #+begin_src sh :tangle ~/.emacs.d/eshell/profile

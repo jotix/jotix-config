@@ -14,9 +14,7 @@
       spotify      
       gimp
       firefox
-      inkscape
       vscode
-      vial
     ];
   };
 }
