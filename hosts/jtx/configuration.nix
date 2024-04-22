@@ -4,7 +4,7 @@
 
 {
   hyprland.enable = true;
-  #plasma.enable = true;
+  plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
   
