@@ -30,7 +30,10 @@
       numix-gtk-theme
       numix-icon-theme
       numix-cursor-theme
+      blueman
     ];
-    
+
+  security.polkit.enable = true;
+      
   };
 }

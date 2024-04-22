@@ -1,10 +1,10 @@
 # jtx-nixos hosts configuration
 
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   hyprland.enable = true;
-  #plasma.enable = true;
+  plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
   
@@ -16,5 +16,5 @@
     layout = "us";
     variant = "altgr-intl";
   };
-
+  
 }
