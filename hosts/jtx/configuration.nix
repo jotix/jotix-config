@@ -7,7 +7,6 @@
   #plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
-  #android-studio.enable = true;
   
   networking = {
     hostName = "jtx-nixos";

@@ -4,9 +4,7 @@
 
 {
   imports = [
-    ./modules/desktops/default.nix
-    ./modules/packages/default.nix
-    ./modules/services/default.nix
+    ./modules/default.nix
   ];
   
   nix = {
@@ -16,7 +14,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  #security.pam.services.swaylock = {};
+
   system.stateVersion = "23.11";
+
+  home-manager.backupFileExtension = "backup";
 
   ### boot #####################################################################
   boot = {
@@ -81,7 +83,114 @@
     };
     defaultUserShell = pkgs.bash;
   };
+  
+  ### servicese ################################################################
 
-  security.pam.services.swaylock = {};
+  ### pipewire
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
 
+  ### syncthing
+  services.syncthing = {
+    enable = true;
+    user = "jotix";
+    dataDir = "/home/jotix";
+    configDir = "/home/jotix/.config/syncthing";
+    overrideFolders = false;
+    overrideDevices = false;
+  };
+
+  ### emacs
+  services.emacs.enable = true;
+
+  ### packages #################################################################
+  environment.systemPackages = with pkgs; [
+    exfat
+    exfatprogs
+    usbutils
+    pciutils
+    gnumake
+    cmake
+    gcc
+    nixd
+    zip
+    unzip
+    p7zip
+    killall
+    wget
+    neofetch
+    dwt1-shell-color-scripts
+    wlr-randr
+    mpv
+    htop
+    fuse
+    wl-clipboard
+    xclip
+    eza
+    git
+    lazygit
+    powerline-go
+    neovim
+    virtiofsd
+    librecad
+    libreoffice
+    gparted
+    spotify      
+    gimp
+    firefox
+    vscode
+  ];
+
+  fonts.packages = with pkgs; [
+    google-fonts
+    nerdfonts
+    roboto
+    roboto-mono
+    jetbrains-mono
+    fira-code
+    fira-code-nerdfont
+    powerline-fonts
+  ];
+
+  programs = {
+    mtr.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      #pinentryPackage = pkgs.pinentry-curses;
+    };
+    fuse.userAllowOther = true;
+    dconf.enable = true;
+  };
+
+  ### virtualizations ##########################################################
+  virtualisation = {
+    libvirtd = { 
+      enable = true; 
+      qemu = {
+        ovmf = {
+          enable = true;
+          packages = [ pkgs.OVMFFull.fd ];
+        };
+        swtpm.enable = true;
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
+  programs.virt-manager = {
+    enable = true;
+    package = pkgs.virt-manager;
+  };
+  #virtualisation.tpm.enable = true;
+  
 }
