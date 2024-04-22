@@ -16,11 +16,11 @@
         modules = [
           ./hosts/jtx/configuration.nix
           ./hosts/jtx/hardware-configuration.nix
-          ./nixOsModules/default.nix
+          ./configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jotix = import ./homeManagerModules/default.nix;
+            home-manager.users.jotix = import ./home/home-configuration.nix;
           }
         ];
       };
@@ -30,11 +30,11 @@
         modules = [
           ./hosts/ffm/configuration.nix
           ./hosts/ffm/hardware-configuration.nix
-          ./nixOsModules/default.nix
+          ./configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jotix = import ./homeManagerModules/default.nix;
+            home-manager.users.jotix = import ./home/home-configuration.nix;
           }
         ];
       };
