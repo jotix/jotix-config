@@ -9,31 +9,54 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  ### root 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "ext4";
+    device = "/dev/disk/by-label/jtx-system";
+    fsType = "btrfs";
+    options = [ "subvol=/nixos/root" ];
   };
 
+  ### home
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/jtx-system";
+    fsType = "btrfs";
+    options = [ "subvol=/nixos/home" ];
+  };
+
+  ### efi
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/EFI";
+    device = "/dev/disk/by-label/JTX-EFI";
     fsType = "vfat";
   };
+  
+  ### jtx-system
+  fileSystems."/mnt/jtx-system" = {
+    device = "/dev/disk/by-label/jtx-system";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
+  };
 
+  ### jtx-ssd
   fileSystems."/mnt/jtx-ssd" = {
     device = "/dev/disk/by-label/jtx-ssd";
-    fsType = "ext4";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
   };
 
+  ### jtx-nvme
   fileSystems."/mnt/jtx-nvme" = {
     device = "/dev/disk/by-label/jtx-nvme";
-    fsType = "ext4";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
   };
 
+  ### Ventoy
   fileSystems."/mnt/Ventoy" = {
     device = "/dev/disk/by-label/Ventoy";
     fsType = "exfat";
   };
 
+  ### swap
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 4096;
