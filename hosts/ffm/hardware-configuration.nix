@@ -9,21 +9,33 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  ### root
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "ext4";
+    device = "/dev/disk/by-label/system";
+    fsType = "btrfs";
+    options = [ "subvol=/nixos/root" ];
+  };
+  
+  ### home
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/system";
+    fsType = "btrfs";
+    options = [ "subvol=/nixos/home" ];
   };
 
+  ### efi
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-label/EFI";
     fsType = "vfat";
   };
 
+  ### Ventoy
   fileSystems."/mnt/Ventoy" = {
     device = "/dev/disk/by-label/Ventoy";
     fsType = "exfat";
   };
 
+  ### swap
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 4096;
