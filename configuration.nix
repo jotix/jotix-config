@@ -49,10 +49,6 @@
 
   ### environment ##############################################################
   environment = {
-    variables = {
-      EDITOR = "nano";
-      VISUAL = "nano";
-    };
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
       rebuild-boot = "sudo nixos-rebuild boot --flake .#$HOSTNAME";
@@ -110,9 +106,6 @@
     overrideDevices = false;
   };
 
-  ### emacs
-  services.emacs.enable = true;
-
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
     exfat
@@ -164,6 +157,13 @@
     };
     fuse.userAllowOther = true;
     dconf.enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
   ### virtualizations ##########################################################
