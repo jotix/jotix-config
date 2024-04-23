@@ -23,6 +23,13 @@
     options = [ "subvol=/nixos/home" ];
   };
 
+  ### home
+  fileSystems."/mnt/ffm-nixos" = {
+    device = "/dev/disk/by-label/ffm-nixos";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
+  };
+
   ### efi
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-label/FFM-EFI";
