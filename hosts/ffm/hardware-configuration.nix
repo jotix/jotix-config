@@ -11,21 +11,21 @@
 
   ### root
   fileSystems."/" = {
-    device = "/dev/disk/by-label/system";
+    device = "/dev/disk/by-label/ffm-nixos";
     fsType = "btrfs";
     options = [ "subvol=/nixos/root" ];
   };
   
   ### home
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/system";
+    device = "/dev/disk/by-label/ffm-nixos";
     fsType = "btrfs";
     options = [ "subvol=/nixos/home" ];
   };
 
   ### efi
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/EFI";
+    device = "/dev/disk/by-label/FFM-EFI";
     fsType = "vfat";
   };
 

@@ -11,14 +11,14 @@
 
   ### root 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/jtx-system";
+    device = "/dev/disk/by-label/jtx-nixos";
     fsType = "btrfs";
     options = [ "subvol=/nixos/root" ];
   };
 
   ### home
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/jtx-system";
+    device = "/dev/disk/by-label/jtx-nixos";
     fsType = "btrfs";
     options = [ "subvol=/nixos/home" ];
   };
@@ -30,8 +30,8 @@
   };
   
   ### jtx-system
-  fileSystems."/mnt/jtx-system" = {
-    device = "/dev/disk/by-label/jtx-system";
+  fileSystems."/mnt/jtx-nixos" = {
+    device = "/dev/disk/by-label/jtx-nixos";
     fsType = "btrfs";
     options = [ "subvol=/" ];
   };

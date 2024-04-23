@@ -2,8 +2,8 @@
 ** Requirements
 
 To proced with the installation make the following partitions:
-- FAT32, efi(ef00) - LABEL=EFI
-- BTRFS filesystem for the new installation - LABEL=system 
+- FAT32, efi(ef00) - LABEL=JTX-EFI / FFM-EFI
+- BTRFS filesystem for the new installation - LABEL=jtx-nixos / ffm-nixos 
 
 Run the script make the btrfs subvolumes and mounting them
 
