@@ -50,8 +50,8 @@
   ### environment ##############################################################
   environment = {
     variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "nano";
+      VISUAL = "nano";
     };
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
@@ -129,18 +129,12 @@
     killall
     wget
     neofetch
-    dwt1-shell-color-scripts
     wlr-randr
     mpv
     htop
     fuse
     wl-clipboard
     xclip
-    eza
-    git
-    lazygit
-    powerline-go
-    neovim
     virtiofsd
     librecad
     libreoffice
@@ -148,7 +142,6 @@
     spotify      
     gimp
     firefox
-    vscode
   ];
 
   fonts.packages = with pkgs; [

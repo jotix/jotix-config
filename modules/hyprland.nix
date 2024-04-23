@@ -7,12 +7,6 @@
 
   config = lib.mkIf(config.hyprland.enable) {
 
-    # enable hyprland home-manager modules
-    home-manager.users.jotix = { 
-      hyprland.enable = true;
-      waybar.enable = true;
-    };
-
     environment.systemPackages = with pkgs; [
       hyprland
       hyprshot

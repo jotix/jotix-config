@@ -11,10 +11,8 @@
 
   programs.bash = {
     enable = true;
-    initExtra = "colorscript --random";
+    initExtra = "neofetch";
   };
-
-  programs.powerline-go.enable = true;
 
   programs.eza = {
     enable = true;
@@ -44,5 +42,6 @@
   };
 
   programs.lazygit.enable = true;
+  programs.powerline-go.enable = true;
  
 }
