@@ -4,7 +4,7 @@
 
 {
   imports = [
-    ./modules/default.nix
+    ./nixos-modules/default.nix
   ];
   
   nix = {
