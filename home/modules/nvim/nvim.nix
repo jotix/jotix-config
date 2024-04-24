@@ -8,6 +8,8 @@
   config = lib.mkIf(config.nvim.enable) {
     programs.neovim = {
       enable = true;
+      viAlias = true;
+      vimAlias = true;
       plugins = with pkgs.vimPlugins; [
         vim-nix
         vim-startify
