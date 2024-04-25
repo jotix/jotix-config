@@ -16,7 +16,6 @@
 
   #cups.enable = true;
   #gnome.enable = true;
-  hyprland.enable = true;
   #plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
