@@ -5,10 +5,10 @@
 {
   # enable home-manager modules
   home-manager.users.jotix = {
-    emacs.enable = true;
-    hyprland.enable = true;
+    #emacs.enable = true;
+    #hyprland.enable = true;
     #nvim.enable = true;
-    waybar.enable = true;
+    #waybar.enable = true;
     helix.enable = true;
     kitty.enable = true;
     #qutebrowser.enable = true;
@@ -16,7 +16,7 @@
 
   #cups.enable = true;
   #gnome.enable = true;
-  #plasma.enable = true;
+  plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
   
