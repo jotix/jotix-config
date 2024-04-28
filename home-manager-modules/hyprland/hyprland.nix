@@ -86,10 +86,7 @@
       enable = true;
       settings = {
         #monitor=name,resolution,position,scale
-        monitor = [
-          "HDMI-A-1,disable"
-          "DP-1, 1920x1080, 0x0, 1"
-        ];
+        monitor = "monitor=,preferred,auto,auto";
         env = "XCURSOR_SIZE,24";
         input = {
           kb_layout = "us";
