@@ -114,6 +114,7 @@
   environment.systemPackages = with pkgs; [
     exfat
     exfatprogs
+    ntfs3g
     usbutils
     pciutils
     gnumake
