@@ -11,6 +11,8 @@
     hardware.steam-hardware.enable = true;
 
     environment.systemPackages = with pkgs; [ oversteer ];
+
+    programs.gamemode.enable = true;
     
   };
 }
