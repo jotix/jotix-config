@@ -5,7 +5,7 @@
 {
   # enable home-manager modules
   home-manager.users.jotix = {
-    #emacs.enable = true;
+    emacs.enable = true;
     #hyprland.enable = true;
     #nvim.enable = true;
     #waybar.enable = true;

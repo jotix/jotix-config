@@ -17,7 +17,7 @@
 
   programs.bash = {
     enable = true;
-    initExtra = "neofetch";
+    initExtra = "fastfetch";
   };
 
   programs.eza = {

@@ -135,7 +135,7 @@
     p7zip
     killall
     wget
-    neofetch
+    fastfetch
     wlr-randr
     mpv
     htop
