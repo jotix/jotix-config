@@ -3,8 +3,6 @@
 #+DESCRIPTION: jotix's nixos configuratioin files
 #+STARTUP: overview
 
-* Jotix's NixOs configuration
-
 * Requirements
 
 To proced with the installation make the following partitions:
