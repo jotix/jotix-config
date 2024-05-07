@@ -1,0 +1,72 @@
+#+AUTHOR: jotix
+#+TITLE: JOTIX NixOS Config
+#+DESCRIPTION: jotix's nixos configuratioin files
+#+STARTUP: overview
+
+* Jotix's NixOs configuration
+
+* Requirements
+
+To proced with the installation make the following partitions:
+
+| partition type | host | label      |
+|----------------+------+------------|
+| FAT32 (ef00)   | jtx  | JTX-EFI    |
+| btrfs          | jtx  | jtx-system |
+|----------------+------+------------|
+| FAT32 (ef00)   | ffm  | FFM-EFI    |
+| btrfs          | ffm  | ffm-system |
+
+Mount the partitions
+#+begin_src sh
+sudo mount LABEL=???-system /mnt
+sudo btrfs subvolume create /mnt/nixos
+sudo btrfs subvolume create /mnt/nixos/root
+sudo btrfs subvolume create /mnt/nixos/home
+sudo umount -R /mnt
+
+sudo mount LABEL=???-system /mnt -osubvil=/nixos/root
+sudo mkdir -p /mnt/home
+sudo mkdir -p /mnt/boot/efi
+sudo mount LABEL=???-system /mnt/home -osubvil=/nixos/home
+sudo mount LABEL=???-EFI /mnt/boot/efi
+#+end_src
+
+* Update flake
+
+Optional: to update the flake, run the following command:
+
+#+begin_src sh
+nix flake update --extra-experimental-features 'nix-command flakes'
+#+end_src
+
+* Install the new system
+
+To install the new system run the following command:
+
+#+begin_src sh
+sudo nixos-install --flake .#[hostname]
+#+end_src
+
+* copy nixos-config folder to the new installation
+
+If changes are made in any file of this repo, copy it to
+the new installation if you don't want to loose
+the changes.
+
+#+begin_src sh
+sudo cp -rv ~/nixos-config /mnt/home/jotix/
+#+end_src
+
+* set jotix's password
+
+Set the password for the new installation,
+
+#+begin_src sh
+sudo nixos-enter --command 'passwd jotix'
+#+end_src
+
+* Final Steps
+
+Unmount the partitions, reboot, and enjoy the new system...
+
