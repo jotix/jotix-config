@@ -23,10 +23,10 @@ sudo btrfs subvolume create /mnt/nixos/root
 sudo btrfs subvolume create /mnt/nixos/home
 sudo umount -R /mnt
 
-sudo mount LABEL=???-nixos /mnt -osubvil=/nixos/root
+sudo mount LABEL=???-nixos /mnt -osubvol=/nixos/root
 sudo mkdir -p /mnt/home
 sudo mkdir -p /mnt/boot/efi
-sudo mount LABEL=???-nixos /mnt/home -osubvil=/nixos/home
+sudo mount LABEL=???-nixos /mnt/home -osubvol=/nixos/home
 sudo mount LABEL=???-EFI /mnt/boot/efi
 #+end_src
 
