@@ -149,6 +149,7 @@
     spotify      
     gimp
     firefox
+    vscodium
   ];
 
   fonts.packages = with pkgs; [
