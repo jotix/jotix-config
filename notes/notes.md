@@ -67,3 +67,10 @@ sudo systemctl restart cups
       -t7z -m0=lzma2 -mx=9 -mfb=64 \
       -md=32m -ms=on -mhe=on -p'eat_my_shorts' \
       archive.7z dir1
+
+# repare windows EFI boot
+
+asign a letter to windows and EFI partitions with diskpart
+in this example the drivers c: and f:
+
+    $ bcdboot c:\Windows /s f: /f all

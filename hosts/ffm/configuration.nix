@@ -6,7 +6,7 @@
 
   ### home-manager modules
   home-manager.users.jotix = {
-    #emacs.enable = true;
+    emacs.enable = true;
     #hyprland.enable = true;
     #nvim.enable = true;
     #waybar.enable = true;
@@ -39,5 +39,8 @@
 
   environment.shellAliases.camara = "mpv rtsp://jujodeve:SuperJoti3275@192.168.0.6/stream1 --profile=low-latency --no-audio";
 
-  boot.loader.grub.default = "2";
+  boot.loader.grub = {
+    useOSProber = true;
+    default = "2";
+  };
 }
