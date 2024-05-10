@@ -8,18 +8,18 @@
   home-manager.users.jotix = {
     #emacs.enable = true;
     #hyprland.enable = true;
-    nvim.enable = true;
+    #nvim.enable = true;
     #waybar.enable = true;
-    #helix.enable = true;
+    helix.enable = true;
     kitty.enable = true;
     #qutebrowser.enable = true;
   };
 
   ### NixOS Modules
   cups.enable = true;
-  gnome.enable = true;
+  #gnome.enable = true;
   #hyprland.enable = true;
-  #plasma.enable = true;
+  plasma.enable = true;
   #qmk.enable = true;
   steam.enable = true;
 
