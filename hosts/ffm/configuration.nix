@@ -8,10 +8,10 @@
   home-manager.users.jotix = {
     emacs.enable = true;
     #hyprland.enable = true;
-    #nvim.enable = true;
+    nvim.enable = true;
     #waybar.enable = true;
     helix.enable = true;
-    kitty.enable = true;
+    #kitty.enable = true;
     #qutebrowser.enable = true;
   };
 
