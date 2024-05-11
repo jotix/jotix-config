@@ -26,11 +26,11 @@
   ### Host specific config
   networking.hostName = "ffm-nixos";
   
-  users.users.filofem = {
-    isNormalUser = true;
-    description = "FILOfem";
-    extraGroups = [ "networkmanager" "libvirtd" ];
-  };
+  # users.users.filofem = {
+  #   isNormalUser = true;
+  #   description = "FILOfem";
+  #   extraGroups = [ "networkmanager" "libvirtd" ];
+  # };
 
   services.xserver.xkb = {
     layout = "es";

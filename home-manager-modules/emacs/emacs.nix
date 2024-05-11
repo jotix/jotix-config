@@ -41,6 +41,7 @@
         visual-fill-column
         geiser
         geiser-guile
+        dmenu
       ];
     };
 
