@@ -10,13 +10,13 @@
     nvim.enable = true;
     #waybar.enable = true;
     #helix.enable = true;
-    #kitty.enable = true;
+    kitty.enable = true;
     #qutebrowser.enable = true;
   };
 
   #cups.enable = true;
-  gnome.enable = true;
-  #plasma.enable = true;
+  #gnome.enable = true;
+  plasma.enable = true;
   qmk.enable = true;
   steam.enable = true;
   
