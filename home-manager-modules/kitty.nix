@@ -1,6 +1,6 @@
 ### Kitty Module
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.kitty.enable = lib.mkEnableOption "Enable Kitty";

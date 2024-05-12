@@ -1,6 +1,6 @@
 # default configuration
 
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [

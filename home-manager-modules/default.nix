@@ -1,6 +1,6 @@
 # HomeManager Default Module
 
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
   home.stateVersion = "23.11";

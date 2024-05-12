@@ -1,6 +1,6 @@
 ### Waybar Module
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   waybarStyle = builtins.readFile( ./style.css );

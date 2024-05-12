@@ -1,6 +1,6 @@
 # helix
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.helix.enable = lib.mkEnableOption "Enable Helix";

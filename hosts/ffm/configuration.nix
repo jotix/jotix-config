@@ -1,6 +1,6 @@
 # ffm-nixos configuration
 
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
 

@@ -1,6 +1,6 @@
 ### Qutebrowser Module
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.qutebrowser.enable = lib.mkEnableOption "Enable Qutebrowser";

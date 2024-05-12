@@ -1,6 +1,6 @@
 # jtx-nixos hosts configuration
 
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   # enable home-manager modules
