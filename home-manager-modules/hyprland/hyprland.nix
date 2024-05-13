@@ -89,9 +89,9 @@
         monitor = "monitor=,preferred,auto,auto";
         env = "XCURSOR_SIZE,24";
         input = {
-          kb_layout = "us";
-          kb_variant = "altgr-intl";
-          follow_mouse = 1;
+            kb_layout = "es";
+          #kb_variant = "altgr-intl";
+          follow_mouse = 0;
           touchpad = {
             natural_scroll = "no";
           };

@@ -7,20 +7,19 @@
   ### home-manager modules
   home-manager.users.jotix = {
     emacs.enable = true;
-    #hyprland.enable = true;
+    hyprland.enable = true;
     nvim.enable = true;
-    #waybar.enable = true;
-    helix.enable = true;
-    #kitty.enable = true;
+    waybar.enable = true;
+    #helix.enable = true;
+    kitty.enable = true;
     #qutebrowser.enable = true;
   };
 
   ### NixOS Modules
   cups.enable = true;
   #gnome.enable = true;
-  #hyprland.enable = true;
-  plasma.enable = true;
-  #qmk.enable = true;
+  #plasma.enable = true;
+    #qmk.enable = true;
   steam.enable = true;
 
   ### Host specific config
@@ -31,7 +30,7 @@
   #   description = "FILOfem";
   #   extraGroups = [ "networkmanager" "libvirtd" ];
   # };
-
+  
   services.xserver.xkb = {
     layout = "es";
     #variant = "";
