@@ -143,13 +143,10 @@
     wl-clipboard
     xclip
     virtiofsd
-    librecad
-    libreoffice
     gparted
     spotify      
     gimp
-    firefox
-    vscodium
+    google-chrome
   ];
 
   fonts.packages = with pkgs; [
