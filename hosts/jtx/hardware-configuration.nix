@@ -11,27 +11,27 @@
 
   ### root 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/jtx-nixos";
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
     options = [ "subvol=/nixos/root" ];
   };
 
   ### home
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/jtx-nixos";
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
     options = [ "subvol=/nixos/home" ];
   };
 
   ### efi
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/JTX-EFI";
+    device = "/dev/disk/by-label/NIXOS-EFI";
     fsType = "vfat";
   };
   
   ### jtx-system
-  fileSystems."/mnt/jtx-nixos" = {
-    device = "/dev/disk/by-label/jtx-nixos";
+  fileSystems."/mnt/NixOS" = {
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
     options = [ "subvol=/" ];
   };
