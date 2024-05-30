@@ -146,7 +146,7 @@
     gparted
     spotify      
     gimp
-    google-chrome
+    firefox
   ];
 
   fonts.packages = with pkgs; [
