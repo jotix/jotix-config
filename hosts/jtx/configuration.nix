@@ -8,7 +8,7 @@
   #cups.enable = true;
   #exwm.enable = true;
   #gnome.enable = true;
-  hyprland.enable = true;
+  #hyprland.enable = true;
   plasma.enable = true;
   qmk.enable = true;
   #river.enable = true;
