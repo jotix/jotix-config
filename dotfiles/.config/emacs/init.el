@@ -21,7 +21,7 @@
 ;; recent files
 (recentf-mode 1)
 
-;; history 
+;; history
 (setq history-lenght 25)
 (savehist-mode 1)
 
@@ -41,7 +41,7 @@
 ;; undo-history files location
 (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo")))
 
-;; avoid confirmation for closinbg a buffer with a running process 
+;; avoid confirmation for closinbg a buffer with a running process
 (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
 
 (setq indent-tabs-mode nil)
@@ -99,7 +99,7 @@
 
 
 ;; frame-size
-(set-frame-size (selected-frame) 200 60)
+;;(set-frame-size (selected-frame) 200 60)
 
 ;; packages config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -120,7 +120,7 @@
 
 ;; dashboard
 (dashboard-setup-startup-hook)
-(setq dashboard-display-icons-p t) 
+(setq dashboard-display-icons-p t)
 (setq dashboard-icon-type 'nerd-icons)
 
 ;; all-the-icons-dired
@@ -222,7 +222,13 @@
 ;; slime
 (setq inferior-lisp-program "sbcl")
 
-;; custom functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ace-window
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-scope 'frame)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?j ?k ?l))
+(setq aw-minibuffer-flag t)
+
+;; Custom Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun jtx/org-present-prepare-slide (buffer-name heading)
   ;; Show only top-level headlines
@@ -379,7 +385,7 @@
 ;; (global-set-key (kbd "C-z z") 'jtx/set-frame-size-small)
 ;; (global-set-key (kbd "C-z n") 'jtx/set-frame-size-normal)
 
-(define-key org-mode-map (kbd "C-c b m") 'org-babel-mark-block) 
+(define-key org-mode-map (kbd "C-c b m") 'org-babel-mark-block)
 (define-key org-mode-map (kbd "C-c p") 'jtx/mark-block-and-send-to-elpy)
 (define-key org-mode-map (kbd "C-c e") 'org-babel-execute-src-block)
 (define-key org-mode-map (kbd "C-c y") 'jtx/python-execute-block-in-eshell)
@@ -406,3 +412,9 @@
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<down>") 'windmove-down)
+
+(define-key org-mode-map (kbd "M-<left>") 'windmove-left)
+(define-key org-mode-map (kbd "M-<right>") 'windmove-right)
+(define-key org-mode-map (kbd "M-<up>") 'windmove-up)
+(define-key org-mode-map (kbd "M-<down>") 'windmove-down)
+

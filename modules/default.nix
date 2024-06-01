@@ -5,10 +5,14 @@
 {
   imports = [
     ./cups.nix
+    ./exwm.nix
     ./gnome.nix
+    ./hyprland.nix
     ./plasma.nix
     ./qmk.nix
+    ./river.nix
     ./steam.nix
+    ./syncthing.nix
   ];
   
   nix = {
@@ -21,8 +25,6 @@
   #security.pam.services.swaylock = {};
 
   system.stateVersion = "23.11";
-
-  home-manager.backupFileExtension = "bak";
 
   ### graphics drivers ########################################################
   hardware.opengl = {
@@ -109,15 +111,6 @@
     #media-session.enable = true;
   };
 
-  ### syncthing
-  services.syncthing = {
-    enable = true;
-    user = "jotix";
-    dataDir = "/home/jotix";
-    configDir = "/home/jotix/.config/syncthing";
-    overrideFolders = false;
-    overrideDevices = false;
-  };
 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
@@ -143,10 +136,21 @@
     wl-clipboard
     xclip
     virtiofsd
+    librecad
+    libreoffice
     gparted
     spotify      
     gimp
     firefox
+    vscodium
+    helix
+    eza
+    lazygit
+    powerline-go
+    zoxide
+    python3
+    bat
+    (import ./emacs.nix { inherit pkgs; })
   ];
 
   fonts.packages = with pkgs; [
@@ -159,6 +163,8 @@
     fira-code-nerdfont
     powerline-fonts
   ];
+
+  programs.git.enable = true;
 
   programs = {
     mtr.enable = true;
@@ -174,8 +180,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    #viAlias = true;
-    #vimAlias = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
   ### virtualizations ##########################################################

@@ -39,6 +39,61 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+-- bootstrap lazy.nvim ---------------------------------------------------------
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- plugings --------------------------------------------------------------------
+require("lazy").setup({
+    "nvim-lualine/lualine.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "mbbill/undotree",
+    --"preservim/nerdtree",
+    "akinsho/toggleterm.nvim",
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    "LnL7/vim-nix",
+    {
+        {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+
+        --- Uncomment these if you want to manage LSP servers from neovim
+        -- {'williamboman/mason.nvim'},
+        -- {'williamboman/mason-lspconfig.nvim'},
+
+        -- LSP Support
+        {
+            'neovim/nvim-lspconfig',
+            dependencies = {
+                {'hrsh7th/cmp-nvim-lsp'},
+            },
+        },
+
+        -- Autocompletion
+        {
+            'hrsh7th/nvim-cmp',
+            dependencies = {
+                {'L3MON4D3/LuaSnip'},
+            }
+        }
+    }
+})
+
 -- plugins configurations ------------------------------------------------------
 
 -- color theme
@@ -59,14 +114,14 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 -- treesitter
 require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    --ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
-    --sync_install = false,
+    sync_install = false,
 
     -- Automatically install missing parsers when entering buffer
     -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-    --auto_install = true,
+    auto_install = true,
 
     highlight = {
         enable = true,
@@ -83,8 +138,8 @@ require'nvim-treesitter.configs'.setup {
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- nerdtree
-vim.keymap.set("n", "<leader>n", ":NERDTreeFocus<CR>")
-vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")
+--vim.keymap.set("n", "<leader>n", ":NERDTreeFocus<CR>")
+--vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")
 
 -- toggleterm
 require'toggleterm'.setup {

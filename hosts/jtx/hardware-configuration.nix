@@ -30,7 +30,7 @@
   };
   
   ### jtx-system
-  fileSystems."/mnt/NixOS" = {
+  fileSystems."/mnt/nixos" = {
     device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
     options = [ "subvol=/" ];

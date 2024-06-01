@@ -3,23 +3,18 @@
 { ... }:
 
 {
-  # enable home-manager modules
-  home-manager.users.jotix = {
-    emacs.enable = true;
-    #hyprland.enable = true;
-    nvim.enable = true;
-    #waybar.enable = true;
-    #helix.enable = true;
-    kitty.enable = true;
-    #qutebrowser.enable = true;
-  };
 
+  ### NixOS Modules
   #cups.enable = true;
+  #exwm.enable = true;
   #gnome.enable = true;
+  hyprland.enable = true;
   plasma.enable = true;
   qmk.enable = true;
+  #river.enable = true;
   steam.enable = true;
-  
+  #syncthing.enable = true;
+    
   networking = {
     hostName = "jtx-nixos";
   };
