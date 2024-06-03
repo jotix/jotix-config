@@ -105,15 +105,17 @@
 
   services.xserver = {
     enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
   
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    autoNumlock = true;
-  };
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = true;
+  #   autoNumlock = true;
+  # };
   
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
@@ -155,9 +157,12 @@
     bat
     digikam
     kitty
-    kdePackages.kate
-    kdePackages.kcalc
-    libsForQt5.kamoso
+    gnome.gnome-tweaks
+    gnome.cheese
+    gnomeExtensions.tiling-assistant
+    # kdePackages.kate
+    # kdePackages.kcalc
+    # libsForQt5.kamoso
     (import ./emacs.nix { inherit pkgs; })
   ];
 
