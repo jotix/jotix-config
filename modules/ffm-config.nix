@@ -6,8 +6,7 @@
   networking.hostName = "ffm-nixos";
   
   services.xserver.xkb = {
-    layout = "us";
-    variant = "altgr-intl";
+    layout = "es";
   };
 
   environment.shellAliases.camara = "mpv rtsp://jujodeve:SuperJoti3275@192.168.0.6/stream1 --profile=low-latency --no-audio";
