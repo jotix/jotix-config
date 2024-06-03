@@ -13,8 +13,8 @@
         system = "x86_64-linux";
         modules = [
           ./modules/default.nix
-          ./modules/hardware-configuration.nix
-          ./modules/jtx-configuration.nix
+          ./modules/hardware-config.nix
+          ./modules/jtx-config.nix
         ];
       };
 
@@ -22,8 +22,8 @@
         system = "x86_64-linux";
         modules = [
           ./modules/default.nix
-          ./modules/hardware-configuration.nix
-          ./modules/ffm-configuration.nix
+          ./modules/hardware-config.nix
+          ./modules/ffm-config.nix
         ];
       };
 
