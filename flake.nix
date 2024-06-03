@@ -12,18 +12,18 @@
       jtx-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/jtx/configuration.nix
-          ./hosts/jtx/hardware-configuration.nix
           ./modules/default.nix
+          ./modules/hardware-configuration.nix
+          ./modules/jtx-configuration.nix
         ];
       };
 
       ffm-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/ffm/configuration.nix
-          ./hosts/ffm/hardware-configuration.nix
           ./modules/default.nix
+          ./modules/hardware-configuration.nix
+          ./modules/ffm-configuration.nix
         ];
       };
 

@@ -2,19 +2,7 @@
 
 { pkgs, ... }:
 
-{
-  imports = [
-    ./cups.nix
-    ./exwm.nix
-    ./gnome.nix
-    ./hyprland.nix
-    ./plasma.nix
-    ./qmk.nix
-    ./river.nix
-    ./steam.nix
-    ./syncthing.nix
-  ];
-  
+{  
   nix = {
     package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
     extraOptions = ''experimental-features = nix-command flakes'';
@@ -111,6 +99,17 @@
     #media-session.enable = true;
   };
 
+  services.xserver = {
+    enable = true;
+  };
+  
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    autoNumlock = true;
+  };
+  
+  services.desktopManager.plasma6.enable = true;
 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
@@ -150,6 +149,11 @@
     zoxide
     python3
     bat
+    digikam
+    kitty
+    kdePackages.kate
+    kdePackages.kcalc
+    libsForQt5.kamoso
     (import ./emacs.nix { inherit pkgs; })
   ];
 
@@ -183,6 +187,11 @@
     viAlias = true;
     vimAlias = true;
   };
+
+  programs.steam.enable = true;
+  hardware.steam-hardware.enable = true;
+
+  programs.gamemode.enable = true;
 
   ### virtualizations ##########################################################
   virtualisation = {

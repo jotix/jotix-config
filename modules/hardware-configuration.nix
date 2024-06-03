@@ -9,13 +9,13 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  ### root
+  ### root 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
     options = [ "subvol=/nixos/root" ];
   };
-  
+
   ### home
   fileSystems."/home" = {
     device = "/dev/disk/by-label/NixOS";
@@ -23,17 +23,17 @@
     options = [ "subvol=/nixos/home" ];
   };
 
-  ### home
-  fileSystems."/mnt/nixos" = {
-    device = "/dev/disk/by-label/NixOS";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
-
   ### efi
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-label/NIXOS-EFI";
     fsType = "vfat";
+  };
+  
+  ### NixOS
+  fileSystems."/mnt/nixos" = {
+    device = "/dev/disk/by-label/NixOS";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
   };
 
   ### Ventoy
@@ -50,5 +50,8 @@
 
   networking.useDHCP = lib.mkDefault true;
 
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
+
 }
