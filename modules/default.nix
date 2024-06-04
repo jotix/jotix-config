@@ -134,47 +134,31 @@
     killall
     wget
     fastfetch
-    wlr-randr
     mpv
     htop
     fuse
     wl-clipboard
-    xclip
     virtiofsd
-    librecad
-    libreoffice
     gparted
     spotify      
     gimp
     firefox
-    vscodium
-    helix
     eza
     lazygit
     powerline-go
     zoxide
     python3
     bat
-    digikam
-    kitty
     gnome.gnome-tweaks
     gnome.cheese
     gnomeExtensions.tiling-assistant
-    # kdePackages.kate
-    # kdePackages.kcalc
-    # libsForQt5.kamoso
     (import ./emacs.nix { inherit pkgs; })
   ];
 
   fonts.packages = with pkgs; [
-    google-fonts
-    nerdfonts
-    roboto
-    roboto-mono
     jetbrains-mono
     fira-code
     fira-code-nerdfont
-    powerline-fonts
   ];
 
   programs.git.enable = true;
@@ -184,7 +168,6 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      #pinentryPackage = pkgs.pinentry-curses;
     };
     fuse.userAllowOther = true;
     dconf.enable = true;
