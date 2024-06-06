@@ -143,6 +143,7 @@
     spotify      
     gimp
     firefox
+    google-chrome
     eza
     lazygit
     powerline-go
