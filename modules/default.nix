@@ -4,7 +4,9 @@
 
 {
   imports = [
-    ./hyprland.nix
+    #./hyprland.nix
+    #./gnome.nix
+    ./plasma.nix
   ];
   
   nix = {
@@ -103,19 +105,7 @@
     #media-session.enable = true;
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
-  
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland.enable = true;
-  #   autoNumlock = true;
-  # };
-  
-  # services.desktopManager.plasma6.enable = true;
+  services.xserver.enable = true;
 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
@@ -142,17 +132,15 @@
     gparted
     spotify      
     gimp
-    firefox
+    libreoffice
     google-chrome
+    nextcloud-client
     eza
     lazygit
     powerline-go
     zoxide
     python3
     bat
-    gnome.gnome-tweaks
-    gnome.cheese
-    gnomeExtensions.tiling-assistant
     (import ./emacs.nix { inherit pkgs; })
   ];
 
