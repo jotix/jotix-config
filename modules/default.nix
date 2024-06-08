@@ -133,7 +133,7 @@
     spotify      
     gimp
     libreoffice
-    google-chrome
+    firefox
     nextcloud-client
     eza
     lazygit
