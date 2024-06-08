@@ -132,9 +132,7 @@
     gparted
     spotify      
     gimp
-    libreoffice
-    google-chrome
-    nextcloud-client
+    firefox
     eza
     lazygit
     powerline-go
