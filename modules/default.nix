@@ -139,6 +139,7 @@
     zoxide
     python3
     bat
+    lbry
     (import ./emacs.nix { inherit pkgs; })
   ];
 
