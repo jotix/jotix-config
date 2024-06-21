@@ -5,8 +5,8 @@
 {
   imports = [
     #./hyprland.nix
-    ./gnome.nix
-    #./plasma.nix
+    #./gnome.nix
+    ./plasma.nix
   ];
   
   nix = {
