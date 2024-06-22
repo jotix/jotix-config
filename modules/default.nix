@@ -173,7 +173,7 @@
 
   programs.gamemode.enable = true;
 
-  ### virtualizations ##########################################################
+  ### virtualization ###########################################################
   virtualisation = {
     libvirtd = { 
       enable = true; 
