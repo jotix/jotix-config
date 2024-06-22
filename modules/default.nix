@@ -7,6 +7,7 @@
     #./hyprland.nix
     #./gnome.nix
     ./plasma.nix
+    ./syncthing.nix
   ];
   
   nix = {
@@ -21,10 +22,9 @@
   system.stateVersion = "23.11";
 
   ### graphics drivers ########################################################
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
