@@ -107,6 +107,8 @@
 
   services.xserver.enable = true;
 
+  services.flatpak.enable = true;
+
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
     exfat
