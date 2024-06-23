@@ -18,7 +18,7 @@ alias cd=z
 ### cd to config folder
 alias cdc='cd ~/nixos-config'
 
-POWERLINE_BIN=/nix/store/vbqyzqk3z6aj5g27z2b460gv23ya8xg1-powerline-go-1.24/bin/powerline-go
+POWERLINE_BIN=/nix/store/hmhmf7l5h05513fs91lsz643j9kzs1g5-powerline-go-1.24/bin/powerline-go
 
 function _update_ps1() {
     PS1="$($POWERLINE_BIN -error $? -jobs $(jobs -p | wc -l))"
