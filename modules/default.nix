@@ -144,6 +144,7 @@
     lbry
     libreoffice
     inkscape
+    scribus
     (import ./emacs.nix { inherit pkgs; })
   ];
 
