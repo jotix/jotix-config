@@ -145,7 +145,7 @@
     libreoffice
     inkscape
     scribus
-    (import ./emacs.nix { inherit pkgs; })
+    #(import ./emacs.nix { inherit pkgs; })
   ];
 
   fonts.packages = with pkgs; [
