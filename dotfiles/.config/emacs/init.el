@@ -99,7 +99,7 @@
 
 
 ;; frame-size
-;;(set-frame-size (selected-frame) 200 60)
+(set-frame-size (selected-frame) 200 48)
 
 ;; packages config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
