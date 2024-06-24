@@ -4,10 +4,7 @@
 
 {
   imports = [
-    #./hyprland.nix
-    #./gnome.nix
-    ./plasma.nix
-    ./syncthing.nix
+    ./hardware-config.nix
   ];
   
   nix = {
@@ -19,7 +16,9 @@
 
   #security.pam.services.swaylock = {};
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
+
+  home-manager.backupFileExtension = "bak";
 
   ### graphics drivers ########################################################
   hardware.graphics = {
@@ -105,9 +104,40 @@
     #media-session.enable = true;
   };
 
-  services.xserver.enable = true;
+  ### syncthing
+  services.syncthing = {
+    enable = true;
+    user = "jotix";
+    dataDir = "/home/jotix";
+    configDir = "/home/jotix/.config/syncthing";
+    overrideFolders = false;
+    overrideDevices = false;
+  };
+
+  services = {
+    printing = {
+      enable = true;
+      drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+  };
 
   services.flatpak.enable = true;
+
+  ### Desktop
+  services.xserver.enable = true;
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    autoNumlock = true;
+  };
+
+  services.desktopManager.plasma6.enable = true;
 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
@@ -126,26 +156,25 @@
     killall
     wget
     fastfetch
+    wlr-randr
     mpv
     htop
     fuse
     wl-clipboard
+    xclip
     virtiofsd
     gparted
+    qmk
+    qmk-udev-rules
+    vial
     spotify      
     gimp
     firefox
-    eza
-    lazygit
-    powerline-go
-    zoxide
-    python3
-    bat
-    lbry
     libreoffice
     inkscape
-    scribus
-    #(import ./emacs.nix { inherit pkgs; })
+    python3
+    kdePackages.kate
+    kdePackages.kcalc
   ];
 
   fonts.packages = with pkgs; [
@@ -154,13 +183,12 @@
     fira-code-nerdfont
   ];
 
-  programs.git.enable = true;
-
   programs = {
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
+      #pinentryPackage = pkgs.pinentry-curses;
     };
     fuse.userAllowOther = true;
     dconf.enable = true;
@@ -169,16 +197,16 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
+    #viAlias = true;
+    #vimAlias = true;
   };
 
+  ### steam
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
-
   programs.gamemode.enable = true;
 
-  ### virtualization ###########################################################
+  ### virtualizations ##########################################################
   virtualisation = {
     libvirtd = { 
       enable = true; 

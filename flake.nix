@@ -4,26 +4,36 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
 
       jtx-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./modules/default.nix
-          ./modules/hardware-config.nix
-          ./modules/jtx-config.nix
+          ./hosts/jtx-config.nix
+          ./nixos-modules/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jotix = import ./home-manager-modules/default.nix;
+          }
         ];
       };
 
       ffm-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./modules/default.nix
-          ./modules/hardware-config.nix
-          ./modules/ffm-config.nix
+          ./hosts/ffm-config.nix
+          ./nixos-modules/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jotix = import ./home-manager-modules/default.nix;
+          }
         ];
       };
 
