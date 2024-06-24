@@ -142,6 +142,8 @@
     python3
     bat
     lbry
+    libreoffice
+    inkscape
     (import ./emacs.nix { inherit pkgs; })
   ];
 
