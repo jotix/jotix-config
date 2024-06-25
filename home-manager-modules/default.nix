@@ -6,7 +6,7 @@
   home.stateVersion = "24.05";
 
   imports = [
-
+    ./emacs/emacs.nix
   ];
 
   programs.bash = {
