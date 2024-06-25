@@ -2,7 +2,7 @@
 
 To proced with the installation make the following partitions:
 
-	+-----------------+-------------+
+    +-----------------+-------------+
     | partition type  | label       |
     |-----------------+-------------|
     | FAT32 (ef00)    | NIXOS-EFI   |
