@@ -173,6 +173,8 @@
     python3
     kdePackages.kate
     kdePackages.kcalc
+    digikam
+    racket
   ];
 
   fonts.packages = with pkgs; [
