@@ -33,12 +33,5 @@
     options = [ "subvol=/" ];
   };
 
-  ### jtx-nvme
-  fileSystems."/mnt/jtx-nvme" = {
-    device = "/dev/disk/by-label/jtx-nvme";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
-
   hardware.bluetooth.enable = true;
 }
