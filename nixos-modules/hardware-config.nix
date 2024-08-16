@@ -11,16 +11,16 @@
 
   ### root 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NixOS";
+    device = "/dev/disk/by-label/nixos";
     fsType = "btrfs";
-    options = [ "subvol=/nixos/root" ];
+    options = [ "subvol=/" ];
   };
 
   ### home
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/NixOS";
+    device = "/dev/disk/by-label/nixos-home";
     fsType = "btrfs";
-    options = [ "subvol=/nixos/home" ];
+    options = [ "subvol=/" ];
   };
 
   ### efi
@@ -29,13 +29,6 @@
     fsType = "vfat";
   };
   
-  ### NixOS
-  fileSystems."/mnt/nixos" = {
-    device = "/dev/disk/by-label/NixOS";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
-
   ### Ventoy
   fileSystems."/mnt/Ventoy" = {
    device = "/dev/disk/by-label/Ventoy";
