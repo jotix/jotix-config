@@ -6,21 +6,16 @@ To proced with the installation make the following partitions:
     | partition type  | label       |
     |-----------------+-------------|
     | FAT32 (ef00)    | NIXOS-EFI   |
-    | btrfs           | NixOS       |
+    | btrfs           | nixos       |
+	| btrfs           | nixos-home  |
     +-----------------+-------------+
 
 Mount the partitions
 
-	sudo mount LABEL=NixOS /mnt
-	sudo btrfs subvolume create /mnt/nixos
-	sudo btrfs subvolume create /mnt/nixos/root
-	sudo btrfs subvolume create /mnt/nixos/home
-	sudo umount -R /mnt
-
-	sudo mount LABEL=NixOS /mnt -osubvol=/nixos/root
+	sudo mount LABEL=nixos /mnt
 	sudo mkdir -p /mnt/home
 	sudo mkdir -p /mnt/boot/efi
-	sudo mount LABEL=NixOS /mnt/home -osubvol=/nixos/home
+	sudo mount LABEL=nixos-home /mnt/home
 	sudo mount LABEL=NIXOS-EFI /mnt/boot/efi
 
 # Update flake
