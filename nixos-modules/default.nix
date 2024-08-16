@@ -29,6 +29,12 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  ### keyboard layout
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "altgr-intl";
+  };
+
   ### boot #####################################################################
   boot = {
     # kernel version

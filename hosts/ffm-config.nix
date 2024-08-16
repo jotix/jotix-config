@@ -9,11 +9,7 @@
     emacs.enable = true;
   };
 
-  networking.hostName = "ffm-nixos";
-  
-  services.xserver.xkb = {
-    layout = "es";
-  };
+  networking.hostName = "ffm-nixos";  
 
   environment.shellAliases.camara = "mpv rtsp://jujodeve:SuperJoti3275@192.168.0.6/stream1 --profile=low-latency --no-audio";
   

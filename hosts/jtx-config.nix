@@ -13,11 +13,6 @@
     hostName = "jtx-nixos";
   };
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "altgr-intl";
-  };
-
   hardware.keyboard.qmk.enable = true;
 
   environment.systemPackages = with pkgs; [
