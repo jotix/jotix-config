@@ -27,7 +27,12 @@
   services = {
     printing = {
       enable = true;
-      drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
+      drivers = with pkgs; [
+        brlaser
+        cups-zj-58
+        epson-escpr
+        cups-filters
+      ];
     };
     avahi = {
       enable = true;
