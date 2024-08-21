@@ -181,6 +181,7 @@
     kdePackages.kcalc
     digikam
     racket
+    ventoy-full
   ];
 
   fonts.packages = with pkgs; [
