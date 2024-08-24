@@ -4,11 +4,6 @@
 
 {
 
-  ### home-manager modules
-  home-manager.users.jotix = {
-    emacs.enable = true;
-  };
-
   networking = {
     hostName = "jtx-nixos";
   };
