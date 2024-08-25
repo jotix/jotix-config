@@ -5,10 +5,6 @@
 {
   home.stateVersion = "24.05";
 
-  imports = [
-    ./emacs/emacs.nix
-  ];
-
   programs.bash = {
     enable = true;
     initExtra = ''fastfetch'';
@@ -82,6 +78,6 @@
   programs.powerline-go.enable = true;
 
   programs.zoxide.enable = true;
- 
+
 }
 
