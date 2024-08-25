@@ -182,6 +182,8 @@
     digikam
     racket
     ventoy-full
+    transmission
+    transmission-qt
   ];
 
   fonts.packages = with pkgs; [
