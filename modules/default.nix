@@ -188,6 +188,7 @@
     jetbrains-mono
     fira-code
     fira-code-nerdfont
+    ubuntu_font_family
   ];
 
   programs = {
