@@ -5,7 +5,7 @@
 {
   imports = [
     ./hardware-config.nix
-    ./tcc-price-update.nix
+    ./ttc-price-update.nix
   ];
   
   nix = {
