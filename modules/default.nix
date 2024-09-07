@@ -171,19 +171,18 @@
     qmk
     qmk-udev-rules
     vial
-    spotify      
+    spotify
     gimp
-    firefox
+    google-chrome
     libreoffice
     inkscape
     python3
     kdePackages.kate
     kdePackages.kcalc
     digikam
-    racket
     ventoy-full
-    transmission
-    transmission-qt
+    transmission_3
+    transmission_3-qt
   ];
 
   fonts.packages = with pkgs; [
