@@ -19,7 +19,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jotix = import ./modules/home-manager.nix;
+            home-manager.users.jotix = import ./modules/home-manager/default.nix;
           }
         ];
       };
@@ -32,7 +32,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jotix = import ./modules/home-manager.nix;
+            home-manager.users.jotix = import ./modules/home-manager/default.nix;
           }
         ];
       };

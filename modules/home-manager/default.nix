@@ -3,12 +3,17 @@
 { ... }:
 
 {
+  imports = [
+    ./emacs/emacs.nix
+  ];
+
+  emacs.enable = true;
+
   home.stateVersion = "24.05";
 
   programs.bash = {
     enable = true;
     initExtra = ''fastfetch'';
-
   };
 
   programs.eza = {
