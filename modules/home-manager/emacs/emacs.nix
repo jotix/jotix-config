@@ -44,6 +44,7 @@
         eshell-info-banner
         ace-window
         markdown-mode
+        pdf-tools
       ];
     };
 

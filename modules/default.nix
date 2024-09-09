@@ -183,6 +183,7 @@
     ventoy-full
     transmission_3
     transmission_3-qt
+    ghostscript
   ];
 
   fonts.packages = with pkgs; [
