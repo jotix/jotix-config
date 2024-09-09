@@ -68,6 +68,8 @@
       rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
       rebuild-boot = "sudo nixos-rebuild boot --flake .#$HOSTNAME";
       cdc = "cd ~/nixos-config";
+      gitroot = "cd $(git rev-parse --show-toplevel)";
+      gr = "gitroot";
     };
   };
 
