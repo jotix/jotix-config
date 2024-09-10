@@ -5,9 +5,11 @@
 {
   imports = [
     ./emacs/emacs.nix
+    ./neovim/neovim.nix
   ];
 
   emacs.enable = true;
+  neovim.enable = true;
 
   home.stateVersion = "24.05";
 
@@ -62,21 +64,21 @@
     };
   };
 
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "tokyonight_storm";
-      editor.line-number = "relative";
-      keys.normal.esc = ["collapse_selection" "keep_primary_selection"];
-    };
-    defaultEditor = true;
-  };
+  # programs.helix = {
+  #   enable = true;
+  #   settings = {
+  #     theme = "tokyonight_storm";
+  #     editor.line-number = "relative";
+  #     keys.normal.esc = ["collapse_selection" "keep_primary_selection"];
+  #   };
+  #   defaultEditor = true;
+  # };
 
-  home.shellAliases = {
-    vi = "hx";
-    vim = "hx";
-    nvim = "hx";
-  };
+  # home.shellAliases = {
+  #   vi = "hx";
+  #   vim = "hx";
+  #   nvim = "hx";
+  # };
 
   programs.lazygit.enable = true;
 
