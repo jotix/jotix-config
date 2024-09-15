@@ -175,8 +175,7 @@
     vial
     spotify
     gimp
-    brave
-    google-chrome
+    firefox
     libreoffice
     inkscape
     python3
