@@ -176,6 +176,7 @@
     spotify
     gimp
     firefox
+    brave
     libreoffice
     inkscape
     python3
