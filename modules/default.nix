@@ -186,6 +186,7 @@
     transmission_3
     transmission_3-qt
     ghostscript
+    openttd
   ];
 
   fonts.packages = with pkgs; [
