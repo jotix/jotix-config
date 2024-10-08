@@ -23,5 +23,10 @@
     options = [ "subvol=/" ];
   };
 
+  ### steam
+  programs.steam.enable = true;
+  hardware.steam-hardware.enable = true;
+  programs.gamemode.enable = true;
+
   hardware.bluetooth.enable = true;
 }
