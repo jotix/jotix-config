@@ -179,7 +179,6 @@
     python3
     kdePackages.kate
     kdePackages.kcalc
-    digikam
     ventoy-full
     transmission_3
     transmission_3-qt
