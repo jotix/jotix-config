@@ -28,5 +28,8 @@
   hardware.steam-hardware.enable = true;
   programs.gamemode.enable = true;
 
+  ### flatpak
+  services.flatpak.enable = true;
+
   hardware.bluetooth.enable = true;
 }

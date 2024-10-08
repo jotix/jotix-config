@@ -132,8 +132,6 @@
     };
   };
 
-  services.flatpak.enable = true;
-
   ### Desktop
   services.xserver.enable = true;
 
