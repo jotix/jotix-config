@@ -1,6 +1,6 @@
 # default configuration
 
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -38,7 +38,11 @@
   ### boot #####################################################################
   boot = {
     # kernel version
-    #kernelPackages = pkgs.linuxKernel.packages.linux_6_8;
+    #kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
+
+    extraModulePackages = with config.boot.kernelPackages; [
+      rtl88xxau-aircrack
+    ];
 
     supportedFilesystems = [ "ntfs" ];
     
