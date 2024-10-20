@@ -24,12 +24,12 @@
   };
 
   ### steam
-  programs.steam.enable = true;
-  hardware.steam-hardware.enable = true;
-  programs.gamemode.enable = true;
+  #programs.steam.enable = true;
+  #hardware.steam-hardware.enable = true;
+  #programs.gamemode.enable = true;
 
   ### flatpak
-  services.flatpak.enable = true;
+  #services.flatpak.enable = true;
 
   hardware.bluetooth.enable = true;
 }
