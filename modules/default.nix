@@ -8,10 +8,12 @@
     ./ttc-price-update.nix
   ];
   
-  nix = {
-    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
-    extraOptions = ''experimental-features = nix-command flakes'';
-  };
+  #nix = {
+  #  package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
+  #  extraOptions = ''experimental-features = nix-command flakes'';
+  #};
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config.allowUnfree = true;
 
