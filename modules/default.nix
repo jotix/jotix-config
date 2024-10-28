@@ -42,9 +42,9 @@
     # kernel version
     #kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
 
-    extraModulePackages = with config.boot.kernelPackages; [
-      rtl88xxau-aircrack
-    ];
+    # extraModulePackages = with config.boot.kernelPackages; [
+    #   rtl88xxau-aircrack
+    # ];
 
     supportedFilesystems = [ "ntfs" ];
     
@@ -141,13 +141,15 @@
   ### Desktop
   services.xserver.enable = true;
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    autoNumlock = true;
-  };
+  #services.displayManager.sddm = {
+  #  enable = true;
+  #  wayland.enable = true;
+  #  autoNumlock = true;
+  #};
+  #services.desktopManager.plasma6.enable = true;
 
-  services.desktopManager.plasma6.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
@@ -183,13 +185,14 @@
     libreoffice
     inkscape
     python3
-    kdePackages.kate
-    kdePackages.kcalc
     ventoy-full
     transmission_3
     transmission_3-qt
     ghostscript
     openttd
+    gnome.gnome-tweaks
+    rose-pine-icon-theme
+    numix-cursor-theme
   ];
 
   fonts.packages = with pkgs; [
