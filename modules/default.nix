@@ -194,6 +194,8 @@
     numix-cursor-theme
   ];
 
+  programs.chromium.plasmaBrowserIntegrationPackage = pkgs.kdePackages.plasma-browser-integration;
+
   fonts.packages = with pkgs; [
     jetbrains-mono
     fira-code
