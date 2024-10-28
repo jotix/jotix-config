@@ -189,6 +189,7 @@
     openttd
     kdePackages.kate
     kdePackages.kcalc
+    kdePackages.plasma-browser-integration
     rose-pine-icon-theme
     numix-cursor-theme
   ];
