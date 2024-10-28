@@ -141,16 +141,13 @@
   ### Desktop
   services.xserver.enable = true;
 
-  #services.displayManager.sddm = {
-  #  enable = true;
-  #  wayland.enable = true;
-  #  autoNumlock = true;
-  #};
-  #services.desktopManager.plasma6.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
+  services.displayManager.sddm = {
+   enable = true;
+   wayland.enable = true;
+   autoNumlock = true;
+  };
+  services.desktopManager.plasma6.enable = true;
+  
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
     exfat
@@ -190,7 +187,8 @@
     transmission_3-qt
     ghostscript
     openttd
-    gnome.gnome-tweaks
+    kdePackages.kate
+    kdePackages.kcalc
     rose-pine-icon-theme
     numix-cursor-theme
   ];
