@@ -11,16 +11,16 @@
 
   ### root 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
-    options = [ "subvol=/" ];
+    options = [ "subvol=/nixos/root" ];
   };
 
   ### home
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/nixos-home";
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
-    options = [ "subvol=/" ];
+    options = [ "subvol=/nixos/home" ];
   };
 
   ### efi
