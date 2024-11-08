@@ -16,9 +16,23 @@
     vial
   ];
 
+  ### NixOS
+  fileSystems."/mnt/NixOS" = {
+    device = "/dev/disk/by-label/NixOS";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
+  };
+
   ### jtx-ssd
   fileSystems."/mnt/jtx-ssd" = {
     device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
+  };
+
+  ### jtx-ssd
+  fileSystems."/mnt/jtx-nvme" = {
+    device = "/dev/disk/by-label/jtx-nvme";
     fsType = "btrfs";
     options = [ "subvol=/" ];
   };
