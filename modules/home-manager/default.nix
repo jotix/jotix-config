@@ -8,8 +8,8 @@
     ./neovim/neovim.nix
   ];
 
-  emacs.enable = true;
-  neovim.enable = true;
+  emacs.enable = false;
+  neovim.enable = false;
 
   home.stateVersion = "24.05";
 
@@ -64,6 +64,7 @@
     };
   };
 
+  ### helix
   # programs.helix = {
   #   enable = true;
   #   settings = {
@@ -73,7 +74,6 @@
   #   };
   #   defaultEditor = true;
   # };
-
   # home.shellAliases = {
   #   vi = "hx";
   #   vim = "hx";
