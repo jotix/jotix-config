@@ -23,14 +23,8 @@
     options = [ "subvol=/" ];
   };
 
-  ### jtx-ssd
-  fileSystems."/mnt/jtx-ssd" = {
-    device = "/dev/disk/by-label/jtx-ssd";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
 
-  ### jtx-ssd
+  ### jtx-nvme
   fileSystems."/mnt/jtx-nvme" = {
     device = "/dev/disk/by-label/jtx-nvme";
     fsType = "btrfs";

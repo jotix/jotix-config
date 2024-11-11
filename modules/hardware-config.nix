@@ -28,6 +28,13 @@
     device = "/dev/disk/by-label/NIXOS-EFI";
     fsType = "vfat";
   };
+
+  ### jtx-ssd
+  fileSystems."/mnt/jtx-ssd" = {
+    device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
+  };
   
   ### Ventoy
   fileSystems."/mnt/Ventoy" = {
