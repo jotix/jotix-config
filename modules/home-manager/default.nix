@@ -1,7 +1,7 @@
 # HomeManager Default Module
 
 { ... }:
-
+{
 home-manager.users.jotix = {
 
   imports = [
@@ -87,5 +87,6 @@ home-manager.users.jotix = {
 
   programs.zoxide.enable = true;
 
+};
 }
 
