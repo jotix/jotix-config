@@ -23,7 +23,6 @@
     options = [ "subvol=/" ];
   };
 
-
   ### jtx-nvme
   fileSystems."/mnt/jtx-nvme" = {
     device = "/dev/disk/by-label/jtx-nvme";

@@ -8,10 +8,11 @@
     ./gnome.nix
     ./hardware-config.nix
     ./plasma.nix
+    ./syncthing.nix
     ./ttc-price-update.nix
   ];
 
-  gnome.enable = lib.mkDefault true;
+  plasma.enable = lib.mkDefault true;
 
   #nix = {
   #  package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
@@ -106,11 +107,8 @@
     defaultUserShell = pkgs.bash;
   };
 
-  #home-manager.nixosModules.home-manager {
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
-    #home-manager.users.jotix = import ./modules/home-manager/default.nix;
-  #}
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "bak";
   
   ### servicess ################################################################
@@ -125,17 +123,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  ### syncthing
-  #services.syncthing = {
-  #  enable = true;
-  #  user = "jotix";
-  #  dataDir = "/home/jotix";
-  #  configDir = "/home/jotix/.config/syncthing";
-  #  overrideFolders = false;
-  #  overrideDevices = false;
-  #};
-
+  
   services = {
     printing = {
       enable = true;

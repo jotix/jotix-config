@@ -1,16 +1,20 @@
 # HomeManager Default Module
 
-{ ... }:
+{ lib, ... }:
 {
 home-manager.users.jotix = {
 
   imports = [
     ./emacs/emacs.nix
     ./neovim/neovim.nix
+    ./helix.nix
+    ./kitty.nix
   ];
 
-  emacs.enable = true;
-  neovim.enable = false;
+  emacs.enable = lib.mkDefault true;
+  neovim.enable = lib.mkDefault false;
+  helix.enable = lib.mkDefault false;
+  kitty.enable = lib.mkDefault true;
 
   home.stateVersion = "24.05";
 
@@ -45,42 +49,7 @@ home-manager.users.jotix = {
       };
     };
   };
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "Jetbrains Mono";
-      size = 10;
-    };
-    settings = {
-      background_opacity = "0.9";
-    };
-    keybindings = {
-      "ctrl+." = "change_font_size all +2.0";
-      "ctrl+," = "change_font_size all -2.0";
-      "ctrl+t" = "new_tab_with_cwd";
-      "ctrl+left" = "next_tab";
-      "ctrl+right" = "previous_tab";
-      "ctrl+w" = "close_tab";
-    };
-  };
-
-  ### helix
-  # programs.helix = {
-  #   enable = true;
-  #   settings = {
-  #     theme = "tokyonight_storm";
-  #     editor.line-number = "relative";
-  #     keys.normal.esc = ["collapse_selection" "keep_primary_selection"];
-  #   };
-  #   defaultEditor = true;
-  # };
-  # home.shellAliases = {
-  #   vi = "hx";
-  #   vim = "hx";
-  #   nvim = "hx";
-  # };
-
+  
   programs.lazygit.enable = true;
 
   programs.powerline-go.enable = true;
