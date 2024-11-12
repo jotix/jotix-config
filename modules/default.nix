@@ -1,13 +1,18 @@
 # default configuration
 
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   imports = [
+    ./home-manager/default.nix
+    ./gnome.nix
     ./hardware-config.nix
+    ./plasma.nix
     ./ttc-price-update.nix
   ];
-  
+
+  gnome.enable = lib.mkDefault true;
+
   #nix = {
   #  package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
   #  extraOptions = ''experimental-features = nix-command flakes'';
@@ -20,8 +25,6 @@
   #security.pam.services.swaylock = {};
 
   system.stateVersion = "24.05";
-
-  home-manager.backupFileExtension = "bak";
 
   ### graphics drivers ########################################################
   hardware.graphics = {
@@ -102,6 +105,13 @@
     };
     defaultUserShell = pkgs.bash;
   };
+
+  #home-manager.nixosModules.home-manager {
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
+    #home-manager.users.jotix = import ./modules/home-manager/default.nix;
+  #}
+  home-manager.backupFileExtension = "bak";
   
   ### servicess ################################################################
 
@@ -138,16 +148,6 @@
     };
   };
 
-  ### Desktop
-  services.xserver.enable = true;
-
-  services.displayManager.sddm = {
-   enable = true;
-   wayland.enable = true;
-   autoNumlock = true;
-  };
-  services.desktopManager.plasma6.enable = true;
-  
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
     exfat
@@ -187,9 +187,6 @@
     transmission_3-qt
     ghostscript
     openttd
-    kdePackages.kate
-    kdePackages.kcalc
-    kdePackages.plasma-browser-integration
     rose-pine-icon-theme
     numix-cursor-theme
   ];

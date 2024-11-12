@@ -2,13 +2,14 @@
 
 { ... }:
 
-{
+home-manager.users.jotix = {
+
   imports = [
     ./emacs/emacs.nix
     ./neovim/neovim.nix
   ];
 
-  emacs.enable = false;
+  emacs.enable = true;
   neovim.enable = false;
 
   home.stateVersion = "24.05";

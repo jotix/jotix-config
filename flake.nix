@@ -16,11 +16,11 @@
         modules = [
           ./hosts/jtx-config.nix
           ./modules/default.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.jotix = import ./modules/home-manager/default.nix;
-          }
+          #home-manager.nixosModules.home-manager {
+          #  home-manager.useGlobalPkgs = true;
+          #  home-manager.useUserPackages = true;
+          #  home-manager.users.jotix = import ./modules/home-manager/default.nix;
+          #}
         ];
       };
 
@@ -29,11 +29,11 @@
         modules = [
           ./hosts/ffm-config.nix
           ./modules/default.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.jotix = import ./modules/home-manager/default.nix;
-          }
+          home-manager.nixosModules.home-manager #{
+          #  home-manager.useGlobalPkgs = true;
+          #  home-manager.useUserPackages = true;
+          #  home-manager.users.jotix = import ./modules/home-manager/default.nix;
+          #}
         ];
       };
 
