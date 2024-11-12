@@ -8,6 +8,9 @@
     hostName = "jtx-nixos";
   };
 
+  gnome.enable = true;
+  plasma.enable = false;
+
   hardware.keyboard.qmk.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -15,13 +18,6 @@
     qmk-udev-rules
     vial
   ];
-
-  ### NixOS
-  fileSystems."/mnt/NixOS" = {
-    device = "/dev/disk/by-label/NixOS";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
 
   ### jtx-nvme
   fileSystems."/mnt/jtx-nvme" = {

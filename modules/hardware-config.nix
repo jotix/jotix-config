@@ -29,6 +29,13 @@
     fsType = "vfat";
   };
 
+  ### NixOS
+  fileSystems."/mnt/NixOS" = {
+    device = "/dev/disk/by-label/NixOS";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
+  };
+
   ### jtx-ssd
   fileSystems."/mnt/jtx-ssd" = {
     device = "/dev/disk/by-label/jtx-ssd";
