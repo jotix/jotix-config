@@ -8,6 +8,7 @@
     ./gnome.nix
     ./hardware-config.nix
     ./plasma.nix
+    ./qmk.nix
     ./syncthing.nix
     ./ttc-price-update.nix
   ];
