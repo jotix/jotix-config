@@ -1,6 +1,6 @@
 # jtx-nixos hosts configuration
 
-{ pkgs, ... }:
+{ ... }:
 
 {
 
@@ -10,15 +10,8 @@
 
   gnome.enable = true;
   plasma.enable = false;
-
-  hardware.keyboard.qmk.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    qmk
-    qmk-udev-rules
-    vial
-  ];
-
+  qmk.enable = true;
+  
   ### jtx-nvme
   fileSystems."/mnt/jtx-nvme" = {
     device = "/dev/disk/by-label/jtx-nvme";
