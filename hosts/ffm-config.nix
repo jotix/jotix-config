@@ -22,11 +22,12 @@
   services = {
     printing = {
       enable = true;
-      drivers = with pkgs; [
-        brlaser
-        cups-zj-58
-        epson-escpr
-        cups-filters
+      drivers = [
+        pkgs.brlaser
+        pkgs.cups-zj-58
+        pkgs.epson-escpr
+        pkgs.cups-filters
+        (pkgs.callPackage ../modules/hprt-tp806l/hprt-tp806l.nix {})
       ];
     };
     avahi = {
