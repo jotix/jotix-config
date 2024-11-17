@@ -1,0 +1,123 @@
+#!/bin/bash
+#
+# batch file to uninstall printer driver
+#
+
+################################################################################
+#
+# Make sure only root can run our script
+#
+if [ "$(id -u)" != "0" ]; then
+   echo "    Uninstall driver must be run as root." 1>&2
+   exit 1
+fi
+
+################################################################################
+#
+# echo informations
+#
+echo "It will uninstall the driver..."
+echo -n "    input 'y' to continue:"
+read inputval
+if test "$inputval" != "y"
+then
+  echo "    uninstall be canceled"
+  echo
+  exit 1
+fi
+
+################################################################################
+#
+# check cup
+#
+
+TARGET_CPU=`uname -m`
+
+FILTER_PATH_SEARCH=""
+MODEL_PATH_SEARCH=""
+
+MODEL_PATH_SEARCH="$MODEL_PATH_SEARCH /usr/share/cups/model"
+MODEL_PATH_SEARCH="$MODEL_PATH_SEARCH /usr/local/share/cups/model"
+
+FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/lib/cups/filter"
+FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/libexec/cups/filter"
+FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/local/lib/cups/filter"
+FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/local/libexec/cups/filter"
+
+case $TARGET_CPU in
+	x86_64)
+		FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/lib64/cups/filter"
+		FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/libexec64/cups/filter"
+		FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/local/lib64/cups/filter"
+		FILTER_PATH_SEARCH="$FILTER_PATH_SEARCH /usr/local/libexec64/cups/filter"
+
+		MODEL_PATH_SEARCH="$MODEL_PATH_SEARCH /usr/share/ppd"
+	;;
+esac
+################################################################################
+#
+# find install dir
+#
+FILTER_PATH=""
+for DIR in $FILTER_PATH_SEARCH; do
+	if test -d $DIR
+	then
+		FILTER_PATH=$DIR
+		break
+	fi
+done
+MODEL_PATH=""
+for DIR in $MODEL_PATH_SEARCH; do
+	if test -d $DIR
+	then
+		MODEL_PATH=$DIR
+		break
+	fi
+done
+FILTER_PROGRAMS="raster-esc"
+
+
+################################################################################
+#
+# echo informations
+#
+echo "    remove files......"
+
+if test "x$MODEL_PATH" != "x"
+then
+	rm -rf $MODEL_PATH/hprtpos
+fi
+if test "x$FILTER_PATH" != "x"
+then
+	for FILTER in $FILTER_PROGRAMS; do
+		rm -rf $FILTER_PATH/$FILTER
+	done
+fi
+
+
+echo "    restart spooler - CUPS"
+################################################################################
+#
+# restart 
+#
+if test -f /etc/init.d/cups
+then
+  /etc/init.d/cups restart
+else
+  if test -f /etc/init.d/cupsys
+  then
+    /etc/init.d/cupsys restart
+  fi
+fi
+
+################################################################################
+#
+# echo informations
+#
+
+echo "    uninstall driver completed"
+echo
+
+exit 0
+
+

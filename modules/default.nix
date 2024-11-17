@@ -9,11 +9,12 @@
     ./hardware-config.nix
     ./plasma.nix
     ./qmk.nix
+    ./steam.nix
     ./syncthing.nix
     ./ttc-price-update.nix
   ];
 
-  plasma.enable = lib.mkDefault true;
+  gnome.enable = lib.mkDefault true;
 
   #nix = {
   #  package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
@@ -115,8 +116,6 @@
   ### servicess ################################################################
 
   ### pipewire
-  #sound.enable = true;
-  #hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

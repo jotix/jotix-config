@@ -3,14 +3,13 @@
 { ... }:
 
 {
+  ### options
+  qmk.enable = true;
+  cups.enable = true;
 
   networking = {
     hostName = "jtx-nixos";
   };
-
-  gnome.enable = true;
-  plasma.enable = false;
-  qmk.enable = true;
   
   ### jtx-nvme
   fileSystems."/mnt/jtx-nvme" = {
@@ -19,13 +18,9 @@
     options = [ "subvol=/" ];
   };
 
-  ### steam
-  #programs.steam.enable = true;
-  #hardware.steam-hardware.enable = true;
-  #programs.gamemode.enable = true;
-
   ### flatpak
-  #services.flatpak.enable = true;
+  services.flatpak.enable = false;
 
+  ### bluetooth
   hardware.bluetooth.enable = true;
 }

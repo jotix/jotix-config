@@ -1,0 +1,144 @@
+#!/bin/sh
+
+
+################################################################################
+#
+# Make sure only root can run our script
+#
+if [ "$(id -u)" != "0" ]; then
+   echo "    Install driver must be run as root" 1>&2
+   exit 1
+fi
+
+################################################################################
+
+TARGET_CPU=`uname -m`
+
+echo "HPRT POS Printer"
+echo "installer"
+echo "---------------------------------------"
+echo ""
+echo "Models : HPRT POS Printer"
+echo ""
+
+if [ ! -z $DESTDIR ]
+then
+    echo "DESTDIR set to $DESTDIR"
+    echo ""
+fi
+
+SERVERROOT=$(grep '^ServerRoot' /etc/cups/cupsd.conf | awk '{print $2}')
+
+if [ -z $FILTERDIR ] || [ -z $PPDDIR ]
+then
+    echo "Searching for ServerRoot, ServerBin, and DataDir tags in /etc/cups/cupsd.conf"
+    echo ""
+
+    if [ -z $FILTERDIR ]
+    then
+        SERVERBIN=$(grep '^ServerBin' /etc/cups/cupsd.conf | awk '{print $2}')
+
+        if [ -z $SERVERBIN ]
+        then
+            echo "ServerBin tag not present in cupsd.conf - using default"
+            FILTERDIR=/usr/lib/cups/filter
+        elif [ ${SERVERBIN:0:1} = "/" ]
+        then
+            echo "ServerBin tag is present as an absolute path"
+            FILTERDIR=$SERVERBIN/filter
+        else
+            echo "ServerBin tag is present as a relative path - appending to ServerRoot"
+            FILTERDIR=$SERVERROOT/$SERVERBIN/filter
+        fi
+    fi
+
+    echo ""
+
+    if [ -z $PPDDIR ]
+    then
+        DATADIR=$(grep '^DataDir' /etc/cups/cupsd.conf | awk '{print $2}')
+
+        if [ -z $DATADIR ]
+        then
+            echo "DataDir tag not present in cupsd.conf - using default"
+            PPDDIR=/usr/share/cups/model/hprtpos
+        elif [ ${DATADIR:0:1} = "/" ]
+        then
+            echo "DataDir tag is present as an absolute path"
+            PPDDIR=$DATADIR/model/hprtpos
+        else
+            echo "DataDir tag is present as a relative path - appending to ServerRoot"
+            PPDDIR=$SERVERROOT/$DATADIR/model/hprtpos
+        fi
+    fi
+
+    echo ""
+fi
+
+INSTALL=/usr/bin/install
+
+echo "Install raster filter ..."
+
+
+$INSTALL filter/x86/raster-esc $FILTERDIR
+
+case $TARGET_CPU in 
+	x86_64)
+		$INSTALL filter/x64/raster-esc $FILTERDIR
+	;;
+esac
+
+
+echo "Install raster filter SUCCESS..."
+
+echo "Install PPD files ..."
+$INSTALL -m 777 -d $PPDDIR 
+$INSTALL -m 644 ppd/*.ppd $PPDDIR 
+echo "Install PPD files SUCCESS..."
+echo ""
+
+if [ -z $RPMBUILD ]
+then
+    echo "Restarting CUPS"
+    if [ -x /etc/software/init.d/cups ]
+    then
+        /etc/software/init.d/cups stop
+        /etc/software/init.d/cups start
+    elif [ -x /etc/rc.d/init.d/cups ]
+    then
+        /etc/rc.d/init.d/cups stop
+        /etc/rc.d/init.d/cups start
+    elif [ -x /etc/init.d/cups ]
+    then
+        /etc/init.d/cups stop
+        /etc/init.d/cups start
+    elif [ -x /sbin/init.d/cups ]
+    then
+        /sbin/init.d/cups stop
+        /sbin/init.d/cups start
+    elif [ -x /etc/software/init.d/cupsys ]
+    then
+        /etc/software/init.d/cupsys stop
+        /etc/software/init.d/cupsys start
+    elif [ -x /etc/rc.d/init.d/cupsys ]
+    then
+        /etc/rc.d/init.d/cupsys stop
+        /etc/rc.d/init.d/cupsys start
+    elif [ -x /etc/init.d/cupsys ]
+    then
+        /etc/init.d/cupsys stop
+        /etc/init.d/cupsys start
+    elif [ -x /sbin/init.d/cupsys ]
+    then
+        /sbin/init.d/cupsys stop
+        /sbin/init.d/cupsys start
+    else
+        echo "Could not restart CUPS"
+    fi
+    echo ""
+fi
+
+echo "Install Complete"
+echo "Add printer queue using OS tool, http://localhost:631, or http://127.0.0.1:631"
+echo ""
+

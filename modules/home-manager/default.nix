@@ -1,61 +1,59 @@
 # HomeManager Default Module
 
 { lib, ... }:
+
 {
-home-manager.users.jotix = {
+  home-manager.users.jotix = {
 
-  imports = [
-    ./emacs/emacs.nix
-    ./neovim/neovim.nix
-    ./helix.nix
-    ./kitty.nix
-  ];
-
-  emacs.enable = lib.mkDefault true;
-  neovim.enable = lib.mkDefault false;
-  helix.enable = lib.mkDefault false;
-  kitty.enable = lib.mkDefault true;
-
-  home.stateVersion = "24.05";
-
-  programs.bash = {
-    enable = true;
-    initExtra = ''fastfetch'';
-  };
-
-  programs.eza = {
-    enable = true;
-    enableBashIntegration = true;
-    icons = "auto";
-    extraOptions = [
-      "--group-directories-first"
-      "--header"
+    imports = [
+      ./emacs/emacs.nix
+      ./neovim/neovim.nix
+      ./helix.nix
+      ./kitty.nix
     ];
-  };
 
-  programs.git = {
-    enable = true;
-    userName = "jotix";
-    userEmail = "jujodeve@gmail.com";
-    ignores = [
-      "*~"
-      "*.swp"
-      "*~undo-tree~"
-      "#*"
-    ];
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
+    emacs.enable = lib.mkDefault true;
+
+    home.stateVersion = "24.05";
+
+    programs.bash = {
+      enable = true;
+      initExtra = ''fastfetch'';
+    };
+
+    programs.eza = {
+      enable = true;
+      enableBashIntegration = true;
+      icons = "auto";
+      extraOptions = [
+        "--group-directories-first"
+        "--header"
+      ];
+    };
+
+    programs.git = {
+      enable = true;
+      userName = "jotix";
+      userEmail = "jujodeve@gmail.com";
+      ignores = [
+        "*~"
+        "*.swp"
+        "*~undo-tree~"
+        "#*"
+      ];
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
       };
     };
+    
+    programs.lazygit.enable = true;
+
+    programs.powerline-go.enable = true;
+
+    programs.zoxide.enable = true;
+
   };
-  
-  programs.lazygit.enable = true;
-
-  programs.powerline-go.enable = true;
-
-  programs.zoxide.enable = true;
-
-};
 }
 
