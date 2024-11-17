@@ -21,16 +21,14 @@ Prepare the installation disk:
 
 #+begin_src sh
 DISKNAME=/dev/XXXXXX
-SYSTEMPART=$(DISKNAME)p1
-EFIPART=$(DISKNAME)p2
 
-sudo parted /dev/$DISKNAME mklabel gpt
-sudo parted --align optimal -- /dev/$DISKNAME mkpart NixOS btrfs 1MiB -100MiB
-sudo parted --align optimal -- /dev/$DISKNAME mkpart NIXOS-EFI -100MiB -1
-sudo parted /dev/$DISKNAME set 2 esp on
+sudo parted $DISKNAME mklabel gpt
+sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1MiB -100MiB
+sudo parted --align optimal -- $DISKNAME mkpart NIXOS-EFI -100MiB -1
+sudo parted $DISKNAME set 2 esp on
 
-sudo mkfs.btrfs -L NixOS $SYSTEMPART
-sudo mkfs.vfat -F32 -n NIXOS-EFI $EFIPART
+sudo mkfs.btrfs -L NixOS /dev/disk/by-partlabel/NixOS -f
+sudo mkfs.vfat -F32 -n NIXOS-EFI /dev/disk/by-partlabel/NIXOS-EFI
 #+end_src
 
 ** Prepare the subvolumes disk layout
