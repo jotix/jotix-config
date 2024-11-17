@@ -13,14 +13,22 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
-    options = [ "subvol=/nixos/root" ];
+    options = [ "subvol=/@" ];
   };
+
+  ### nix
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/NixOS";
+    fsType = "btrfs";
+    options = [ "subvol=/@nix" ];
+  };
+
 
   ### home
   fileSystems."/home" = {
     device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
-    options = [ "subvol=/nixos/home" ];
+    options = [ "subvol=/@home" ];
   };
 
   ### efi
