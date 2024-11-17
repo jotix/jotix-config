@@ -12,14 +12,18 @@ To proced with the installation make the following partitions:
 Mount the partitions
 
 	sudo mount LABEL=NixOS /mnt
-	sudo btrfs subvolume create /mnt/nixos
-	sudo btrfs subvolume create /mnt/nixos/root
-	sudo btrfs subvolume create /mnt/nixos/home
+	sudo btrfs subvolume create /mnt/@
+	sudo btrfs subvolume create /mnt/@nix
+	sudo btrfs subvolume create /mnt/@home
+        sudo umount -R /mnt
 
-	sudo mount LABEL=NixOS /mnt -osubvol=/nixos/root
+	sudo mount LABEL=NixOS /mnt -osubvol=/@
 	sudo mkdir -p /mnt/home
+        sudo mkdir -p /mnt/nix
 	sudo mkdir -p /mnt/boot/efi
-	sudo mount LABEL=NixOS /mnt/home -osubvol=/nixos/home
+ 
+	sudo mount LABEL=NixOS /mnt/home -osubvol=/@home
+        sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
 	sudo mount LABEL=NIXOS-EFI /mnt/boot/efi
 
 # Update flake
