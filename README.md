@@ -15,15 +15,15 @@ Mount the partitions
 	sudo btrfs subvolume create /mnt/@
 	sudo btrfs subvolume create /mnt/@nix
 	sudo btrfs subvolume create /mnt/@home
-        sudo umount -R /mnt
+	sudo umount -R /mnt
 
 	sudo mount LABEL=NixOS /mnt -osubvol=/@
 	sudo mkdir -p /mnt/home
-        sudo mkdir -p /mnt/nix
+	sudo mkdir -p /mnt/nix
 	sudo mkdir -p /mnt/boot/efi
  
 	sudo mount LABEL=NixOS /mnt/home -osubvol=/@home
-        sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
+	sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
 	sudo mount LABEL=NIXOS-EFI /mnt/boot/efi
 
 # Update flake
