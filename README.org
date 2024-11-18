@@ -11,15 +11,24 @@ To proced with the installation make the following partitions:
 | btrfs          | NixOS      |
 |----------------+------------|
 
-** Prepare the disk partitions & subvolumes layout
+** Preparations
 
+*** List availables disks
 To list the disk availables type:
 
 #+begin_src sh
 sudo parted -l
 #+end_src
 
-Replace the disk name with the right option and run the following script:
+*** Prepare the disk & clone this repository
+
+This script do:
+- prepare the disk creating a new GPT partition table.
+- make the partitioning layout: FAT32 for EFI boot, and BTRFS for the system.
+- make the subvolumes for the root, nix store and home
+- clone this repository
+    
+REPLACE THE DISKNAME IN THE SCRIPT
 
 #+begin_src sh
 # replace the diskname
@@ -56,12 +65,11 @@ sudo mkdir -p /mnt/boot
 sudo mount LABEL=NixOS /mnt/home -osubvol=/@home
 sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
 sudo mount LABEL=NIXOS-BOOT /mnt/boot
-#+end_src
 
-** clone this repository
-
-#+begin_src sh
+# clone this repository
 git clone https://github.com/jotix/nixos-config.git
+
+# enter in the repository folder
 cd nixos-config
 #+end_src
 
