@@ -11,34 +11,35 @@ To proced with the installation make the following partitions:
 | btrfs          | NixOS      |
 |----------------+------------|
 
+** Prepare the disk partitions & subvolumes layout
+
 To list the disk availables type:
 
 #+begin_src sh
 sudo parted -l
 #+end_src
 
-Prepare the installation disk:
+Replace the disk name with the right option and run the following script:
 
 #+begin_src sh
+# replace the diskname
 DISKNAME=/dev/XXXXXX
 
+# make a new GPT partition table
 sudo parted $DISKNAME mklabel gpt
+
+# make EFI & btrfs partitions
 sudo parted --align optimal -- $DISKNAME mkpart NIXOS-BOOT 1MiB 1GiB
 sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1GiB -1
 
+# set esp flag in EFI partition
 sudo parted $DISKNAME set 1 esp on
 
+# make the filesystems
 sudo mkfs.vfat -F32 -n NIXOS-BOOT /dev/disk/by-partlabel/NIXOS-BOOT
 sudo mkfs.btrfs -L NixOS /dev/disk/by-partlabel/NixOS -f
-#+end_src
 
-** Prepare the subvolumes disk layout
-
-Create the FileSystems & mount the partition/subvolumen in the right place.
-Execute the followind commands:
-
-#+begin_src sh
-# Create the subvolumes
+# mount the disk & create the subvolumes
 sudo mount LABEL=NixOS /mnt
 sudo btrfs subvolume create /mnt/@
 sudo btrfs subvolume create /mnt/@nix
