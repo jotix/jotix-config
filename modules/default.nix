@@ -4,6 +4,7 @@
 
 {
   imports = [
+    ./cups.nix
     ./home-manager/default.nix
     ./gnome.nix
     ./hardware-config.nix

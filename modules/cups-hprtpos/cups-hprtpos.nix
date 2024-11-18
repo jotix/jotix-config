@@ -1,4 +1,4 @@
-{ stdenv, cups }:
+{ stdenv, cups, lib }:
 
 stdenv.mkDerivation {
 
@@ -10,8 +10,17 @@ stdenv.mkDerivation {
   buildInputs = [ cups ];
 
   installPhase = ''
-    install -D -m 644 ppd/*.ppd $out/share/cups/model/hprtpos/
-    install -D -m 755 filter/x64/raster-esc $out/lib/cups/filter/raster-esc
+    install -d -m 777 $out/share/cups/model/hprtpos/
+    install -m 644 ppd/*.ppd $out/share/cups/model/hprtpos/
+    install -m 755 -D filter/x64/raster-esc $out/lib/cups/filter/raster-esc
   '';
+
+  meta = with lib; {
+    description = "CUPS filter for HPRT POS thermal printers";
+    homepage = "https://github.com/jotix";
+    platforms = platforms.linux;
+    maintainers = with maintainers; [ jotix ];
+    license = licenses.bsd2;
+  };
   
 }
