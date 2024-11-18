@@ -33,7 +33,7 @@
 
   ### efi
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/NIXOS-EFI";
+    device = "/dev/disk/by-label/NIXOS-BOOT";
     fsType = "vfat";
   };
 
