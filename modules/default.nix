@@ -45,7 +45,11 @@
   };
 
   ### boot #####################################################################
-  boot.loader.systemd-boot.enable = true;
+boot.loader = {
+  systemd-boot.enable = true;
+  systemd-boot.consoleMode = "auto";
+  efi.canTouchEfiVariables = true;
+};
   #boot = {
     # kernel version
     #kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
