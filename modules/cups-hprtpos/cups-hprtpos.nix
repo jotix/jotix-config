@@ -1,13 +1,22 @@
-{ stdenv, cups, lib }:
+{ stdenv, cups, lib, glibc, gcc-unwrapped, autoPatchelfHook }:
 
 stdenv.mkDerivation {
 
   name = "cups-hprtpos";
   version = "1.0";
+  system = "x86_64-linux";
 
   src = ./hprt_pos_printer_linux_driver_v1.2.8;
 
-  buildInputs = [ cups ];
+  nativeBuildInputs = [
+    autoPatchelfHook
+  ];
+
+  buildInputs = [ 
+    cups 
+    glibc
+    gcc-unwrapped
+  ];
 
   installPhase = ''
     install -d -m 777 $out/share/cups/model/hprtpos/
