@@ -4,12 +4,12 @@
 
 To proced with the installation make the following partitions:
 
-|----------------+-----------|
-| partition type | label     |
-|----------------+-----------|
-| FAT32 (ef00)   | NIXOS-EFI |
-| btrfs          | NixOS     |
-|----------------+-----------|
+|----------------+------------|
+| partition type | label      |
+|----------------+------------|
+| FAT32 (ef00)   | NIXOS-BOOT |
+| btrfs          | NixOS      |
+|----------------+------------|
 
 To list the disk availables type:
 
@@ -23,12 +23,13 @@ Prepare the installation disk:
 DISKNAME=/dev/XXXXXX
 
 sudo parted $DISKNAME mklabel gpt
-sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1MiB -100MiB
-sudo parted --align optimal -- $DISKNAME mkpart NIXOS-EFI -100MiB -1
-sudo parted $DISKNAME set 2 esp on
+sudo parted --align optimal -- $DISKNAME mkpart NIXOS-BOOT 1MiB 1GiB
+sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1GiB -1
 
+sudo parted $DISKNAME set 1 esp on
+
+sudo mkfs.vfat -F32 -n NIXOS-BOOT /dev/disk/by-partlabel/NIXOS-BOOT
 sudo mkfs.btrfs -L NixOS /dev/disk/by-partlabel/NixOS -f
-sudo mkfs.vfat -F32 -n NIXOS-EFI /dev/disk/by-partlabel/NIXOS-EFI
 #+end_src
 
 ** Prepare the subvolumes disk layout
@@ -48,12 +49,12 @@ sudo umount -R /mnt
 sudo mount LABEL=NixOS /mnt -osubvol=/@
 sudo mkdir -p /mnt/home
 sudo mkdir -p /mnt/nix
-sudo mkdir -p /mnt/boot/efi
+sudo mkdir -p /mnt/boot
 
 # mount all in the right place
 sudo mount LABEL=NixOS /mnt/home -osubvol=/@home
 sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
-sudo mount LABEL=NIXOS-EFI /mnt/boot/efi
+sudo mount LABEL=NIXOS-BOOT /mnt/boot
 #+end_src
 
 ** clone this repository
