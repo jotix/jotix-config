@@ -45,7 +45,8 @@
   };
 
   ### boot #####################################################################
-  boot = {
+  boot.loader.systemd-boot.enable = true;
+  #boot = {
     # kernel version
     #kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
 
@@ -53,21 +54,21 @@
     #   rtl88xxau-aircrack
     # ];
 
-    supportedFilesystems = [ "ntfs" ];
+    # supportedFilesystems = [ "ntfs" ];
     
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
-      grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-        useOSProber = true;
-      };
-    };
-  };
+    #loader = {
+    #  efi = {
+    #    canTouchEfiVariables = true;
+    #    efiSysMountPoint = "/boot/efi";
+    #  };
+    #  grub = {
+    #    enable = true;
+    #    efiSupport = true;
+    #    device = "nodev";
+    #    useOSProber = true;
+    #  };
+    #};
+  #};
 
   ### networking ###############################################################
   networking = {
