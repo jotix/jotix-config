@@ -20,19 +20,14 @@ To list the disk availables type:
 sudo parted -l
 #+end_src
 
-*** Prepare the disk & clone this repository
-
-This script do:
-- prepare the disk creating a new GPT partition table.
-- make the partitioning layout: FAT32 for EFI boot, and BTRFS for the system.
-- make the subvolumes for the root, nix store and home
-- clone this repository
+*** Run the pre-install script
     
-REPLACE THE DISKNAME IN THE SCRIPT
+REPLACE THE DISKNAME & HOSTNAME IN THE SCRIPT
 
 #+begin_src sh
 # replace the diskname
 DISKNAME=/dev/XXXXXX
+HOSTNAME=xxx-nixos
 
 # make a new GPT partition table
 sudo parted $DISKNAME mklabel gpt
@@ -71,38 +66,25 @@ git clone https://github.com/jotix/nixos-config.git
 
 # enter in the repository folder
 cd nixos-config
-#+end_src
 
-** Optional: Update flake
+# Optional: Update flake
+# If you like, you can update the flake by run the following command:
+#nix flake update --extra-experimental-features 'nix-command flakes'
 
-If you like, you can update the flake by run the following command:
+# Install the new system
+sudo nixos-install --flake .#$HOSTNAME
 
-#+begin_src sh
-nix flake update --extra-experimental-features 'nix-command flakes'
-#+end_src
+# Optional: copy nixos-config folder to the new installation
+# If changes are made in any file of this repo, copy it to the new installation if you don't want to loose the changes.
+#git remote remove origin
+#git remote add origin git@github.com:jotix/nixos-config.git
+#sudo cp -rv ~/nixos-config /mnt/home/jotix/
 
-** Install the new system
+# set jotix's password
+sudo nixos-enter --command 'echo "ENTER JOTIX PASSWORD" && passwd jotix'
 
-To install the new system run the following command:
-
-#+begin_src sh
-sudo nixos-install --flake .#[hostname]
-#+end_src
-
-** Optional: copy nixos-config folder to the new installation
-
-If changes are made in any file of this repo, copy it to the new installation if you don't want to loose the changes.
-
-#+begin_src sh
-sudo cp -rv ~/nixos-config /mnt/home/jotix/
-#+end_src
-
-** set jotix's password
-
-Set the password for jotix user in the new installation:
-
-#+begin_src sh
-sudo nixos-enter --command 'passwd jotix'
+# set filofem password
+[[ if $HOSTNAME == "ffm-nixos" ]] && sudo nixos-enter --command 'echo "ENTER FILOFEM PASSWORD" && passwd filofem'
 #+end_src
 
 ** Final Steps
