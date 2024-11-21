@@ -1,26 +1,13 @@
 * Jotix's NixOS instalation guide
 
-** Requirements
-
-To proced with the installation make the following partitions:
-
-|----------------+------------|
-| partition type | label      |
-|----------------+------------|
-| FAT32 (ef00)   | NIXOS-BOOT |
-| btrfs          | NixOS      |
-|----------------+------------|
-
-** Preparations
-
-*** List availables disks
+** List availables disks
 To list the disk availables type:
 
 #+begin_src sh
 sudo parted -l
 #+end_src
 
-*** Run the pre-install script
+** Run the pre-install script
     
 REPLACE THE DISKNAME & HOSTNAME IN THE SCRIPT
 
