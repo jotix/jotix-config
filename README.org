@@ -38,7 +38,7 @@ DISKNAME=/dev/XXXXXX
 sudo parted $DISKNAME mklabel gpt
 
 # make EFI & btrfs partitions
-sudo parted --align optimal -- $DISKNAME mkpart NIXOS-BOOT 1MiB 1GiB
+sudo parted --align optimal -- $DISKNAME mkpart NIXOS-BOOT fat32 1MiB 1GiB
 sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1GiB -1
 
 # set esp flag in EFI partition
