@@ -7,6 +7,8 @@
 
   config = lib.mkIf(config.plasma.enable) {
 
+    home-manager.users.jotix.kitty.enable = lib.mkDefault true;
+
     services.xserver.enable = true;
 
     services.displayManager.sddm = {

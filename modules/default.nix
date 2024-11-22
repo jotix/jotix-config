@@ -15,7 +15,7 @@
     ./ttc-price-update.nix
   ];
 
-  gnome.enable = lib.mkDefault true;
+  plasma.enable = lib.mkDefault true;
 
   #nix = {
   #  package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
