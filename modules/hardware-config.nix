@@ -35,6 +35,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/NIXOS-BOOT";
     fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" "defaults" ];
   };
 
   ### NixOS
