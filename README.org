@@ -20,8 +20,8 @@ HOSTNAME=xxx-nixos
 sudo parted $DISKNAME mklabel gpt
 
 # make EFI & btrfs partitions
-sudo parted --align optimal -- $DISKNAME mkpart NIXOS-BOOT fat32 1MiB 1GiB
-sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1GiB -1
+sudo parted --align optimal -- $DISKNAME mkpart NIXOS-BOOT fat32 1M 1G
+sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1GiB 100%
 
 # set esp flag in EFI partition
 sudo parted $DISKNAME set 1 esp on
@@ -51,6 +51,7 @@ sudo mount LABEL=NIXOS-BOOT /mnt/boot
 # Otional: clone this repository locally
 #git clone https://github.com/jotix/nixos-config.git
 #cd nixos-config
+#update flake
 #nix flake update --extra-experimental-features 'nix-command flakes'
 #sudo nixos-install --flake .#$HOSTNAME
 
@@ -59,10 +60,6 @@ sudo nixos-install --flake "github:jotix/nixos-config/#$HOSTNAME"
 
 # set jotix's password
 sudo nixos-enter --command 'echo "ENTER JOTIX PASSWORD" && passwd jotix'
-
-# set filofem password
-[[ if $HOSTNAME == "ffm-nixos" ]] && sudo nixos-enter --command 'echo "ENTER FILOFEM PASSWORD" && passwd filofem'
-#+end_src
 
 ** Final Steps
 
