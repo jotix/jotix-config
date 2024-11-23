@@ -45,34 +45,11 @@
   };
 
   ### boot #####################################################################
-boot.loader = {
-  systemd-boot.enable = true;
-  systemd-boot.consoleMode = "auto";
-  efi.canTouchEfiVariables = true;
-};
-  #boot = {
-    # kernel version
-    #kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
-
-    # extraModulePackages = with config.boot.kernelPackages; [
-    #   rtl88xxau-aircrack
-    # ];
-
-    # supportedFilesystems = [ "ntfs" ];
-    
-    #loader = {
-    #  efi = {
-    #    canTouchEfiVariables = true;
-    #    efiSysMountPoint = "/boot/efi";
-    #  };
-    #  grub = {
-    #    enable = true;
-    #    efiSupport = true;
-    #    device = "nodev";
-    #    useOSProber = true;
-    #  };
-    #};
-  #};
+  boot.loader = {
+    systemd-boot.enable = true;
+    systemd-boot.consoleMode = "auto";
+    efi.canTouchEfiVariables = true;
+  };
 
   ### networking ###############################################################
   networking = {
@@ -173,6 +150,7 @@ boot.loader = {
     spotify
     gimp
     google-chrome
+    firefox
     libreoffice
     inkscape
     python3
