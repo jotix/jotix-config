@@ -9,22 +9,22 @@ sudo parted -l
 
 ** Run the pre-install script
     
-REPLACE THE DISKNAME & HOSTNAME IN THE SCRIPT
+REPLACE THE DISK & HOST IN THE SCRIPT
 
 #+begin_src sh
 # replace the diskname
-DISKNAME=/dev/XXXXXX
-HOSTNAME=xxx-nixos
+DISK=/dev/XXXXXX
+HOST=xxx-nixos
 
 # make a new GPT partition table
-sudo parted $DISKNAME mklabel gpt
+sudo parted $DISK mklabel gpt
 
 # make EFI & btrfs partitions
-sudo parted --align optimal -- $DISKNAME mkpart NIXOS-BOOT fat32 1M 1G
-sudo parted --align optimal -- $DISKNAME mkpart NixOS btrfs 1GiB 100%
+sudo parted --align optimal -- $DISK mkpart NIXOS-BOOT fat32 1M 1G
+sudo parted --align optimal -- $DISK mkpart NixOS btrfs 1GiB 100%
 
 # set esp flag in EFI partition
-sudo parted $DISKNAME set 1 esp on
+sudo parted $DISK set 1 esp on
 
 # make the filesystems
 sudo mkfs.vfat -F32 -n NIXOS-BOOT /dev/disk/by-partlabel/NIXOS-BOOT
@@ -53,14 +53,18 @@ sudo mount LABEL=NIXOS-BOOT /mnt/boot
 #cd nixos-config
 #update flake
 #nix flake update --extra-experimental-features 'nix-command flakes'
-#sudo nixos-install --flake .#$HOSTNAME
+#sudo nixos-install --flake .#$HOST
 
 # Install new system
-sudo nixos-install --flake "github:jotix/nixos-config/#$HOSTNAME"
+sudo nixos-install --flake "github:jotix/nixos-config/#$HOST"
 
 # set jotix's password
 sudo nixos-enter --command 'echo "ENTER JOTIX PASSWORD" && passwd jotix'
 
+# set filofem password
+[[ HOST == "ffm-nixos" ]]  && sudo nixos-enter --command 'echo "ENTER FILOFEM PASSWORD" && passwd filofem'
+
+#+end_src
 ** Final Steps
 
 Unmount the partitions, reboot, and enjoy the new system...
