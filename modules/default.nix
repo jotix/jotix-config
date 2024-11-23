@@ -149,7 +149,6 @@
     vial
     spotify
     gimp
-    google-chrome
     firefox
     libreoffice
     inkscape
@@ -162,8 +161,6 @@
     rose-pine-icon-theme
     numix-cursor-theme
   ];
-
-  programs.chromium.plasmaBrowserIntegrationPackage = pkgs.kdePackages.plasma-browser-integration;
 
   fonts.packages = with pkgs; [
     jetbrains-mono

@@ -25,5 +25,7 @@
       kdePackages.plasma-browser-integration
     ];
 
+    programs.chromium.plasmaBrowserIntegrationPackage = pkgs.kdePackages.plasma-browser-integration;
+
   };
 }
