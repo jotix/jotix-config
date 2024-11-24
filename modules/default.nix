@@ -150,6 +150,7 @@
     spotify
     gimp
     firefox
+    google-chrome
     libreoffice
     inkscape
     python3
