@@ -17,16 +17,9 @@
 
   plasma.enable = lib.mkDefault true;
 
-  #nix = {
-  #  package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
-  #  extraOptions = ''experimental-features = nix-command flakes'';
-  #};
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators"];
 
   nixpkgs.config.allowUnfree = true;
-
-  #security.pam.services.swaylock = {};
 
   system.stateVersion = "24.05";
 

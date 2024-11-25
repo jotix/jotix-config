@@ -18,7 +18,7 @@ REPLACE THE DISK & HOST IN THE SCRIPT
     
     # make EFI & btrfs partitions
     sudo parted --align optimal -- $DISK mkpart NIXOS-BOOT fat32 1M 1G
-    sudo parted --align optimal -- $DISK mkpart NixOS btrfs 1GiB 100%
+    sudo parted --align optimal -- $DISK mkpart NixOS btrfs 1G 100%
     
     # set esp flag in EFI partition
     sudo parted $DISK set 1 esp on

@@ -20,10 +20,21 @@
     services.desktopManager.plasma6.enable = true;
 
     environment.systemPackages = with pkgs; [
-      kdePackages.kate
-      kdePackages.kcalc
-      kdePackages.plasma-browser-integration
+      #kdePackages.kate
+      #kdePackages.kcalc
+      #kdePackages.plasma-browser-integration
     ];
+    # ++ kdePackages.sources
+    #   |> builtins.attrNames
+    #   |> builtins.map (n: kdePackages.${n})
+    #   |> builtins.filter (pkg: !pkg.meta.broken)
+    # ];
+
+    # lib.pipe kdePackages.sources [
+    #   builtins.attrNames
+    #   (builtins.map (n: kdePackages.${n}))
+    #   (builtins.filter (pkg: !pkg.meta.broken))
+    # ]
 
     programs.chromium.plasmaBrowserIntegrationPackage = pkgs.kdePackages.plasma-browser-integration;
 
