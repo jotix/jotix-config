@@ -7,10 +7,13 @@
 
     imports = [
       ./emacs/emacs.nix
+      ./kate/kate.nix
       ./neovim/neovim.nix
       ./helix.nix
       ./kitty.nix
     ];
+
+    kate.enable = lib.mkDefault true;
 
     home.stateVersion = "24.05";
 
