@@ -12,8 +12,6 @@
       ./kitty.nix
     ];
 
-    emacs.enable = lib.mkDefault true;
-
     home.stateVersion = "24.05";
 
     programs.bash = {
