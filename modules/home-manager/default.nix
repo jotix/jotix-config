@@ -13,7 +13,7 @@
       ./kitty.nix
     ];
 
-    kate.enable = lib.mkDefault true;
+    emacs.enable = true;
 
     home.stateVersion = "24.05";
 
