@@ -12,9 +12,6 @@ in
   qmk.enable = true;
   cups.enable = true;
 
-  plasma.enable = false;
-  gnome.enable = true;
-
   networking = {
     hostName = "jtx-nixos";
   };
