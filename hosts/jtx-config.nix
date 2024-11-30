@@ -26,7 +26,7 @@ in
   };
 
   ### flatpak
-  services.flatpak.enable = false;
+  # services.flatpak.enable = false;
 
   ### bluetooth
   hardware.bluetooth.enable = true;
