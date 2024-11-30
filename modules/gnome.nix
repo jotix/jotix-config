@@ -14,6 +14,7 @@
     environment.systemPackages = with pkgs; [
       gnome-tweaks
       gnomeExtensions.tiling-assistant
+      gnomeExtensions.applications-menu
     ];
 
   };
