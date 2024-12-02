@@ -144,6 +144,7 @@
     spotify
     gimp
     firefox
+    rclone
     libreoffice
     inkscape
     python3
