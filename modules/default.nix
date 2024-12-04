@@ -16,7 +16,7 @@
   ];
 
   ### set gnome as default Desktop Environment
-  gnome.enable = lib.mkDefault true;
+  plasma.enable = lib.mkDefault true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators"];
 
