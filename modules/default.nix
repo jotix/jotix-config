@@ -60,7 +60,7 @@
       gitroot = "cd $(git rev-parse --show-toplevel)";
       gr = "gitroot";
       google_drive_upload = "rclone copy ~/Documents jujodeve:";
-      gdu = google_drive_upload;
+      gdu = "google_drive_upload";
     };
   };
 
