@@ -410,14 +410,3 @@
 (global-set-key (kbd "C-z C-e") 'hs-hide-block)
 (global-set-key (kbd "C-z C-a") 'hs-show-block)
 
-;; windows navigation
-(global-set-key (kbd "M-<left>") 'windmove-left)
-(global-set-key (kbd "M-<right>") 'windmove-right)
-(global-set-key (kbd "M-<up>") 'windmove-up)
-(global-set-key (kbd "M-<down>") 'windmove-down)
-
-(define-key org-mode-map (kbd "M-<left>") 'windmove-left)
-(define-key org-mode-map (kbd "M-<right>") 'windmove-right)
-(define-key org-mode-map (kbd "M-<up>") 'windmove-up)
-(define-key org-mode-map (kbd "M-<down>") 'windmove-down)
-
