@@ -7,7 +7,7 @@ To list the disk availables type:
 
 ## Download & run the pre-install script
     
-	curl -o install.sh https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/notes/install.sh
+	curl -o install.sh https://raw.githubusercontent.com/jotix/linux-config/refs/heads/main/nixos-install.sh
 
 Make the script executable & run it
 
