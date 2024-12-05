@@ -7,8 +7,15 @@ To list the disk availables type:
 
 ## Download & run the pre-install script
     
-	curl 
-REPLACE THE DISK & HOST IN THE SCRIPT
+	curl -o install.sh https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/install.sh
+
+IMPORTANT !!! 
+REPLACE THE DISK & HOST IN THE SCRIPT	
+
+Make the script executable & run it
+
+	chmod +x install.sh
+	./install.sh
 
 ## Final Steps
 
