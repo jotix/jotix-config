@@ -1,17 +1,5 @@
 #!/usr/bin/env bash
 
-### read_input "message" 
-read_input() {
-    INPUT=""
-    read -p "$1: " INPUT
-    echo $INPUT
-}
-
-### count characters
-count_chars() {
-    echo -n "$1" | wc -c
-}
-
 echo
 lsblk -o +LABEL
 echo 
@@ -30,11 +18,11 @@ fi
 HOST=$HOST-nixos
 
 echo 
-CONTINUE=$(read_input "The disk $DISK will be complete deleted. Continue? (yes/no)")
+read -p "The disk $DISK will be complete deleted. Continue? (yes/no)" CONTINUE
 [[ $CONTINUE != "yes" ]] && exit
 
 echo 
-CONTINUE=$(read_input "REALLY? (YES/NO)")
+read -p "REALLY? (YES/NO)" CONTINUE
 [[ $CONTINUE != "YES" ]] && exit
 
 echo
