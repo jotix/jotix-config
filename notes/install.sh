@@ -11,9 +11,9 @@ if [[ ! -b $DISK ]]; then
 fi
 
 echo 
-read -p "Wich Flake install (jtx or ffm): " HOST
+read -p "Wich host install (jtx or ffm): " HOST
 if [[ $HOST != "jtx" ]] && [[ $HOST != "ffm" ]]; then
-    echo "Flake incorrecto"
+    echo "The host $HOST doesn't exists"
     exit
 fi
 HOST=$HOST-nixos
