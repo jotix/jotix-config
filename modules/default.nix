@@ -154,7 +154,6 @@
     transmission_3
     transmission_3-qt
     ghostscript
-    openttd
     rose-pine-icon-theme
     numix-cursor-theme
   ];

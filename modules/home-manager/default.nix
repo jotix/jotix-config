@@ -9,11 +9,13 @@
       ./emacs/emacs.nix
       ./kate/kate.nix
       ./neovim/neovim.nix
+      ./openttd/openttd.nix
       ./helix.nix
       ./kitty.nix
     ];
 
-    emacs.enable = true;
+    emacs.enable = lib.mkDefault true;
+    openttd.enable = lib.mkDefault true;
 
     home.stateVersion = "24.05";
 
