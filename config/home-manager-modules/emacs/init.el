@@ -195,6 +195,9 @@
 
 (setq org-confirm-babel-evaluate nil)
 
+;; toc-org
+(add-hook 'org-mode-hook 'toc-org-mode)
+
 ;; disabling the anoying org automatic indentation
 (electric-indent-mode 1)
 (setq org-src-tab-acts-natively t)
