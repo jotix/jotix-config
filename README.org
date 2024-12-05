@@ -1,5 +1,5 @@
 #+AUTHOR: jotix
-#+TITLE: JOTIX Linux Notes
+#+TITLE: JOTIX NixOS & Linux Notes
 #+DESCRIPTION: jotix's notes for configuring and tweaking in linux.
 #+STARTUP: overview
 
