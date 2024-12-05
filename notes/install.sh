@@ -4,7 +4,7 @@ echo
 lsblk -o +LABEL
 echo 
 read -p "In which disk will NixOS be instaled: " DISK
-DISK="/dev/$(DISK)"
+DISK="/dev/$DISK"
 if [[ ! -b $DISK ]]; then
     echo "The disk $DISK doesn't exist."
     exit
