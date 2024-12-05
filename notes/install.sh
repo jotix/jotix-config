@@ -4,6 +4,7 @@ echo
 lsblk -o +LABEL
 echo 
 read -p "In which disk will NixOS be instaled: " DISK
+DISK="/dev/$(DISK)"
 if [[ ! -b $DISK ]]; then
     echo "The disk $DISK doesn't exist."
     exit
@@ -18,11 +19,11 @@ fi
 HOST=$HOST-nixos
 
 echo 
-read -p "The disk $DISK will be complete deleted. Continue? (yes/no)" CONTINUE
+read -p "The disk $DISK will be complete deleted. Continue? (yes/no): " CONTINUE
 [[ $CONTINUE != "yes" ]] && exit
 
 echo 
-read -p "REALLY? (YES/NO)" CONTINUE
+read -p "REALLY? (YES/NO): " CONTINUE
 [[ $CONTINUE != "YES" ]] && exit
 
 echo
