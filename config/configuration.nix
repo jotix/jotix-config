@@ -1,18 +1,12 @@
 # default configuration
 
-{ pkgs, config, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
-    ./cups.nix
-    ./home-manager/default.nix
-    ./gnome.nix
-    ./hardware-config.nix
-    ./plasma.nix
-    ./qmk.nix
-    ./steam.nix
-    ./syncthing.nix
-    ./ttc-price-update.nix
+    ./home-manager.nix
+    ./hardware.nix
+    ./modules/default.nix
   ];
 
   ### set gnome as default Desktop Environment
