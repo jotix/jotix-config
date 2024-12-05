@@ -1,7 +1,7 @@
 #+AUTHOR: jotix
 #+TITLE: JOTIX NixOS & Linux Notes
 #+DESCRIPTION: jotix's notes for configuring and tweaking in linux.
-#+STARTUP: overview
+#+STARTUP: show2levels
 
 * Table of Contents :TOC:
 - [[#nixos][NixOS]]
@@ -23,14 +23,14 @@
 Download the install script
 
 #+begin_src sh
-curl -o install.sh https://raw.githubusercontent.com/jotix/linux-config/refs/heads/main/nixos-install.sh
+curl -o nixos-install.sh https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/scripts/nixos-install.sh
 #+end_src
 
 Make the script executable & run it
 
 #+begin_src sh
-chmod +x install.sh
-./install.sh
+chmod +x nixos-install.sh
+./nixos-install.sh
 #+end_src
 
 ** Module Template
