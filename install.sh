@@ -1,8 +1,46 @@
 #!/usr/bin/env bash
 
-# replace the diskname
-DISK=/dev/XXXXXX
-HOST=xxx-nixos
+### read_input "message" 
+read_input() {
+    INPUT=""
+    read -p "$1: " INPUT
+    echo $INPUT
+}
+
+### count characters
+count_chars() {
+    echo -n "$1" | wc -c
+}
+
+echo
+lsblk -o +LABEL
+echo 
+read -p "In which disk will NixOS be instaled: " DISK
+if [[ ! -b $DISK ]]; then
+    echo "The disk $DISK doesn't exist."
+    exit
+fi
+
+echo 
+read -p "Wich Flake install (jtx or ffm): " HOST
+if [[ $HOST != "jtx" ]] && [[ $HOST != "ffm" ]]; then
+    echo "Flake incorrecto"
+    exit
+fi
+HOST=$HOST-nixos
+
+echo 
+CONTINUE=$(read_input "The disk $DISK will be complete deleted. Continue? (yes/no)")
+[[ $CONTINUE != "yes" ]] && exit
+
+echo 
+CONTINUE=$(read_input "REALLY? (YES/NO)")
+[[ $CONTINUE != "YES" ]] && exit
+
+echo
+echo "Installing NixOS in $DISK"
+echo "Flake: $HOST"
+echo
 
 # make a new GPT partition table
 sudo parted $DISK mklabel gpt
