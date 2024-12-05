@@ -20,16 +20,27 @@ HOST=$HOST-nixos
 
 echo 
 read -p "The disk $DISK will be complete deleted. Continue? (yes/no): " CONTINUE
-[[ $CONTINUE != "yes" ]] && exit
+if [[ $CONTINUE != "yes" ]]; then
+    echo "Aborting installation."
+    exit
+fi
 
 echo 
 read -p "REALLY? (YES/NO): " CONTINUE
-[[ $CONTINUE != "YES" ]] && exit
+if [[ $CONTINUE != "YES" ]]; then
+    echo "Aborting installation."
+    exit
+fi
 
 echo
 echo "Installing NixOS in $DISK"
 echo "Flake: $HOST"
 echo
+
+if [[ $HOSTNAME == "ffm-nixos" ]] || [[ $HOSTNAME == "jtx-nixos" ]]; then
+    echo "Executing in testing mode..."
+    exit
+fi
 
 # make a new GPT partition table
 sudo parted $DISK mklabel gpt
