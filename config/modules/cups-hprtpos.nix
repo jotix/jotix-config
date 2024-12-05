@@ -1,4 +1,4 @@
-{ stdenv, cups, lib, glibc, gcc-unwrapped, autoPatchelfHook }:
+{ stdenv, cups, lib, glibc, fetchFromGitHub, gcc-unwrapped, autoPatchelfHook }:
 
 stdenv.mkDerivation {
 
@@ -6,7 +6,12 @@ stdenv.mkDerivation {
   version = "1.0";
   system = "x86_64-linux";
 
-  src = ./hprt_pos_printer_linux_driver_v1.2.8;
+  src = fetchFromGitHub {
+    owner = "jotix";
+    repo = "hprtpos";
+    rev = "main";
+    sha256 = "sha256-bR+tvf3OubYQxq7yBLSyUyHYOkRTyBhA5TDRiM0arao=";
+  };
 
   nativeBuildInputs = [
     autoPatchelfHook
@@ -26,7 +31,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     description = "CUPS filter for HPRT POS thermal printers";
-    homepage = "https://github.com/jotix";
+    homepage = "https://github.com/jotix/hprtpos";
     platforms = platforms.linux;
     maintainers = with maintainers; [ jotix ];
     license = licenses.bsd2;
