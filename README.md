@@ -9,9 +9,6 @@ To list the disk availables type:
     
 	curl -o install.sh https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/install.sh
 
-IMPORTANT !!! 
-REPLACE THE DISK & HOST IN THE SCRIPT	
-
 Make the script executable & run it
 
 	chmod +x install.sh
