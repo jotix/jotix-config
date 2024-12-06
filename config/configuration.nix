@@ -124,6 +124,7 @@
     vial
     spotify
     gimp
+    firefox
     google-chrome
     rclone
     libreoffice
