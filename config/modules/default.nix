@@ -1,8 +1,8 @@
-{ ... }:
+{ lib, ... }:
 
 {
-    imports = [
-    ./cups.nix
+  imports = [
+    ./cups/default.nix
     ./gnome.nix
     ./plasma.nix
     ./qmk.nix
@@ -11,4 +11,6 @@
     ./ttc-price-update.nix
   ];
 
+  cups.enable = lib.mkDefault true;
+  plasma.enable = lib.mkDefault true;
 }

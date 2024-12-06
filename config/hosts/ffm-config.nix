@@ -3,8 +3,6 @@
 { pkgs, ... }:
 
 {
-
-  cups.enable = true;
   
   networking.hostName = "ffm-nixos";  
 

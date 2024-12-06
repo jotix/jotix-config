@@ -10,7 +10,6 @@ in
 {
   ### options
   qmk.enable = true;
-  cups.enable = true;
 
   networking = {
     hostName = "jtx-nixos";

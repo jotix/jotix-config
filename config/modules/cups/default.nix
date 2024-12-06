@@ -15,7 +15,7 @@
           pkgs.cups-zj-58
           pkgs.epson-escpr
           pkgs.cups-filters
-          (pkgs.callPackage cups-hprtpos/cups-hprtpos.nix {})
+          (pkgs.callPackage ./cups-hprtpos.nix {})
         ];
       };
       avahi = {
@@ -24,7 +24,6 @@
         openFirewall = true;
       };
     };
-    
   };
 }
 

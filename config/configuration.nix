@@ -8,10 +8,7 @@
     ./hardware.nix
     ./modules/default.nix
   ];
-
-  ### set gnome as default Desktop Environment
-  plasma.enable = lib.mkDefault true;
-
+ 
   nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators"];
 
   nixpkgs.config.allowUnfree = true;
@@ -95,20 +92,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  };
-  
-  services = {
-    printing = {
-      enable = true;
-      drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
-    };
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
-  };
-
+  }; 
+ 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
     exfat
