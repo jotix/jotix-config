@@ -141,7 +141,7 @@
   fonts.packages = with pkgs; [
     jetbrains-mono
     fira-code
-    fira-code-nerdfont
+    nerd-fonts.fira-code
     ubuntu_font_family
   ];
 
