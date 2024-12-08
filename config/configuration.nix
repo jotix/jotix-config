@@ -52,6 +52,8 @@
       gr = "gitroot";
       google_drive_upload = "rclone copy ~/Documents jujodeve:";
       gdu = "google_drive_upload";
+      "2monitors" = "kscreen-doctor output.DP-1.enable output.DP-1.position.-1920,450 output.HDMI-A-1.position.0,0";
+      "1monitor"="kscreen-doctor output.DP-1.disable output.HDMI-A-1.position.0,0";
     };
   };
 
