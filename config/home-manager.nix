@@ -9,9 +9,6 @@
       ./home-manager-modules/default.nix
     ];
 
-    emacs.enable = lib.mkDefault true;
-    openttd.enable = lib.mkDefault true;
-
     home.stateVersion = "24.05";
 
     programs.bash = {

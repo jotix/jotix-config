@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   imports = [
@@ -10,4 +10,8 @@
     ./kitty.nix
   ];
 
+  emacs.enable = lib.mkDefault true;
+  openttd.enable = lib.mkDefault true;
+  neovim.enable = lib.mkDefault true;
+  
 }
