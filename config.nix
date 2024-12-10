@@ -4,8 +4,8 @@
 
 {
   imports = [
-    ./home-manager.nix
-    ./hardware.nix
+    ./home-manager-config.nix
+    ./hardware-config.nix
     ./modules/default.nix
   ];
  

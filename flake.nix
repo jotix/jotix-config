@@ -14,8 +14,8 @@
       jtx-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./config/hosts/jtx-config.nix
-          ./config/configuration.nix
+          ./hosts/jtx-config.nix
+          ./config.nix
           home-manager.nixosModules.home-manager
         ];
       };
@@ -23,8 +23,8 @@
       ffm-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./config/hosts/ffm-config.nix
-          ./config/configuration.nix
+          ./hosts/ffm-config.nix
+          ./config.nix
           home-manager.nixosModules.home-manager
         ];
       };
