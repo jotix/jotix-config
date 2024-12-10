@@ -18,6 +18,11 @@ if [[ $HOST != "jtx" ]] && [[ $HOST != "ffm" ]]; then
 fi
 HOST=$HOST-nixos
 
+if [[ $HOSTNAME != "nixos" ]]; then
+    echo "Executing in testing mode..."
+    exit
+fi
+
 echo 
 read -p "The disk $DISK will be complete deleted. Continue? (yes/no): " CONTINUE
 if [[ $CONTINUE != "yes" ]]; then
@@ -36,11 +41,6 @@ echo
 echo "Installing NixOS in $DISK"
 echo "Flake: $HOST"
 echo
-
-if [[ $HOSTNAME == "ffm-nixos" ]] || [[ $HOSTNAME == "jtx-nixos" ]]; then
-    echo "Executing in testing mode..."
-    exit
-fi
 
 # make a new GPT partition table
 sudo parted $DISK mklabel gpt
