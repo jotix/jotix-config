@@ -12,6 +12,7 @@
     services.xserver.desktopManager.gnome.enable = true;
 
     environment.systemPackages = with pkgs; [
+      mutter
       gnome-tweaks
       gnomeExtensions.tiling-assistant
       gnomeExtensions.dash-to-dock
