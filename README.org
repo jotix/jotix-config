@@ -12,6 +12,7 @@
   - [[#uninstalling-home-manager][Uninstalling home-manager]]
 - [[#linux-notes][Linux notes]]
   - [[#impresora-brother-hl-1212w-connection][impresora Brother HL-1212W connection]]
+  - [[#impresora-hprt-tp806l][Impresora HPRT TP806L]]
   - [[#youtube-ublock-shorts-filter][YouTube uBlock shorts filter]]
   - [[#launch-a-virtual-monitor-with-kwin_wayland][Launch a virtual monitor with kwin_wayland]]
   - [[#dd-iso-file-in-usb-device][dd iso file in USB device]]
@@ -128,6 +129,11 @@ And then restart cups...
 
 sudo systemctl restart cups
 #+end_src  
+
+** Impresora HPRT TP806L
+
+Editar /etc/cups/printers.conf
+device URI socket://ip-address
 
 ** YouTube uBlock shorts filter
 
