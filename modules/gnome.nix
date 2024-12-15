@@ -16,6 +16,7 @@
       gnome-tweaks
       gnomeExtensions.tiling-assistant
       gnomeExtensions.dash-to-dock
+      gnome-extension-manager
     ];
 
   };
