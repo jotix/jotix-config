@@ -12,8 +12,6 @@
         enable = true;
         drivers = [
           pkgs.brlaser
-          pkgs.cups-zj-58
-          pkgs.epson-escpr
           pkgs.cups-filters
           (pkgs.callPackage ./cups-hprtpos.nix {})
         ];
