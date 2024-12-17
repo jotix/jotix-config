@@ -19,22 +19,5 @@
       gnome-extension-manager
     ];
 
-    programs.dconf = {
-      enable = true;
-      profiles.jotix.databases = [
-        {
-          # lockAll = true; # prevents overriding
-          settings = {
-            "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-            #"org/gnome/desktop/interface".clock-show-weekday = true;
-            "org.gnome.shell".enabled-extensions = [
-              pkgs.gnomeExtensions.tiling-assistant.extensionUuid
-              pkgs.gnomeExtensions.dash-to-dock.extensionUuid
-            ];
-          };
-        }
-      ];
-    };
-
   };
 }
