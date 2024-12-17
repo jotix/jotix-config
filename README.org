@@ -22,16 +22,12 @@
 
 ** Installation
 
-Download the install script
+Download the install script, make it executable & run it
 
 #+begin_src sh
-curl -o nixos-install.sh https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/scripts/nixos-install.sh
-#+end_src
-
-Make the script executable & run it
-
-#+begin_src sh
-chmod +x nixos-install.sh
+curl -o nixos-install.sh \
+https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/scripts/nixos-install.sh && \
+chmod +x nixos-install.sh && \
 ./nixos-install.sh
 #+end_src
 
