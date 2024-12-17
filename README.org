@@ -11,8 +11,7 @@
   - [[#plasma-packages][Plasma packages]]
   - [[#uninstalling-home-manager][Uninstalling home-manager]]
 - [[#linux-notes][Linux notes]]
-  - [[#impresora-brother-hl-1212w-connection][impresora Brother HL-1212W connection]]
-  - [[#impresora-hprt-tp806l][Impresora HPRT TP806L]]
+  - [[#network-printers][Network Printers]]
   - [[#youtube-ublock-shorts-filter][YouTube uBlock shorts filter]]
   - [[#launch-a-virtual-monitor-with-kwin_wayland][Launch a virtual monitor with kwin_wayland]]
   - [[#dd-iso-file-in-usb-device][dd iso file in USB device]]
@@ -87,53 +86,35 @@ nix run home-manager/release-24.05 -- uninstall
 #+end_src
 * Linux notes
 
-** impresora Brother HL-1212W connection
 
-*** KDE
+** Network Printers
 
-edit the connection in the setting panel
-ipp://192.168.0.7/ipp/port1
-
-*** Manual config
-
-For network printers, use ipp://printer_ip/ipp/port1 as printer address.
-cambiar la direccion de la impresora en el gui del DE por la indicada arriba usando la IP de la impresora, (192.168.0.7)
+Edit the Device URI in /etc/cups/printers.conf
 
 #+begin_src sh
-sudo vim /etc/cups/printers.conf
+.
+.
+DeviceURI ...........
+.
+.
 #+end_src
 
-In a terminal:
+Restart cups
+#+begin_src sh
+sudo systemctl restart cups
+#+end_src
+
+*** Impresora Brother HL-1212W connection
 
 #+begin_src sh
-sudo systemctl stop cups
-sudo vi /etc/cups/printers.conf - (or the text editor of your choice, I chose vi.)
+ipp://192.168.0.7/ipp/port1
+#+end_src
 
-locate the printer's URI (in bold below), it will be among all of your printers' profiles, they are arranged within tags like:
+*** Impresora HPRT TP806L
 
-<Printer My Poop Laser Printer>
-PrinterId 1
-UUID urn:uuid:c41ca0c7-52f3-3448-5dfe-11281fc3ac2e
-AuthInfoRequired none
-Info
-Location
-MakeModel Generic IPP Everywhere Printer
-DeviceURI ipp://192.168.200.2/printers/laser
-State Idle
-.
-.
-</Printer>
-
-You can edit the IP there, save it.
-And then restart cups...
-
-sudo systemctl restart cups
-#+end_src  
-
-** Impresora HPRT TP806L
-
-Editar /etc/cups/printers.conf
-device URI socket://ip-address
+#+begin_src sh
+socket://192.168.0.2
+#+end_src
 
 ** YouTube uBlock shorts filter
 
