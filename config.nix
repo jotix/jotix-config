@@ -127,6 +127,7 @@
     spotify
     gimp
     google-chrome
+    firefox
     rclone
     libreoffice
     inkscape
