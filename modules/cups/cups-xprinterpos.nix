@@ -26,7 +26,7 @@ stdenv.mkDerivation {
   installPhase = ''
     install -d -m 777 $out/share/cups/model/xprinterpos/
     install -m 644 ppd/*.ppd $out/share/cups/model/xprinterpos/
-    install -m 755 -D filter/* $out/lib/cups/filter/
+    install -m 755 -D filter/x64/rasterosnailep-pos $out/lib/cups/filter/rasterosnailep-pos
   '';
 
   meta = with lib; {
