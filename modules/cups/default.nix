@@ -14,6 +14,7 @@
           pkgs.brlaser
           pkgs.cups-filters
           (pkgs.callPackage ./cups-hprtpos.nix {})
+          (pkgs.callPackage ./cups-xprinterpos.nix {})
         ];
       };
       avahi = {
