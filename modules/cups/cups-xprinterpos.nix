@@ -10,7 +10,7 @@ stdenv.mkDerivation {
     owner = "jotix";
     repo = "xprinterpos";
     rev = "main";
-    sha256 = "sha256-bR+tvf3OubYQxq7yBLSyUyHYOkRTyBhA5TDRiM0arao=";
+    sha256 = "sha256-kKJhbwEIGGpmbxXbCZE054IWMMkMFhJoed40Jr5sZVQ=";
   };
 
   nativeBuildInputs = [
