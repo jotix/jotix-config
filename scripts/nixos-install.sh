@@ -85,7 +85,11 @@ sudo mount LABEL=NIXOS-BOOT /mnt/boot
 sudo nixos-install --flake "github:jotix/nixos-config/#$HOST"
 
 # set jotix's password
-sudo nixos-enter --command 'echo "ENTER JOTIX PASSWORD" && passwd jotix'
+echo "ENTER JOTIX PASSWORD"
+sudo nixos-enter --command 'passwd jotix'
 
 # set filofem password
-[[ HOST == "ffm-nixos" ]]  && sudo nixos-enter --command 'echo "ENTER FILOFEM PASSWORD" && passwd filofem'
+if [[ $HOST == "ffm-nixos" ]]; then
+    echo "ENTER FILOFEM PASSWORD"
+    sudo nixos-enter --command  'passwd filofem'
+fi
