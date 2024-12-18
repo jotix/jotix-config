@@ -19,7 +19,6 @@
   - [[#ip-camera-as-webcam][IP camera as webcam]]
 
 * NixOS
-
 ** Installation
 
 Download the install script, make it executable & run it
@@ -77,12 +76,12 @@ pero nada funciona hasta ahora
 #+end_src
 
 ** Uninstalling home-manager
+
 #+begin_src sh
 nix run home-manager/release-24.05 -- uninstall
 #+end_src
+
 * Linux notes
-
-
 ** Network Printers
 
 Edit the Device URI in /etc/cups/printers.conf
