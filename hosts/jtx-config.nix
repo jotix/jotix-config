@@ -24,9 +24,12 @@ in
     options = [ "subvol=/" ];
   };
 
-  ### flatpak
-  # services.flatpak.enable = false;
-
   ### bluetooth
   hardware.bluetooth.enable = true;
+
+  boot.kernelParams = [
+    "video=DP-1:3840x2160@60"
+    "video=HDMI-A-1:1920x1080@60"
+  ];
+  
 }
