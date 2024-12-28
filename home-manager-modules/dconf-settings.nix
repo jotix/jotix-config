@@ -1,0 +1,37 @@
+### dconf-settiongs Module
+
+{ config, lib, pkgs, ... }:
+
+{
+  options.dconf-settings.enable = lib.mkEnableOption "Enable dconf-settings";
+  
+  config = lib.mkIf(config.dconf-settings.enable) {
+    dconf = {
+      enable = true;
+      settings = {
+        "org/gnome/shell" = {
+          disable-user-extensions = false; # enables user extensions
+          enabled-extensions = [
+            # Put UUIDs of extensions that you want to enable here.
+            # If the extension you want to enable is packaged in nixpkgs,
+            # you can easily get its UUID by accessing its extensionUuid
+            # field (look at the following example).
+            pkgs.gnomeExtensions.tiling-assistant.extensionUuid
+            pkgs.gnomeExtensions.dash-to-dock.extensionUuid
+            
+            # Alternatively, you can manually pass UUID as a string.  
+            # "blur-my-shell@aunetx"
+            # ...
+          ];
+        };
+
+        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+        "org/gnome/nautilus/icon-view".default-zoom-level = "small";
+        #"org/gnome/Console".last-window-size = lib.gvariant.mkTuple [1200 800];
+        "org/gnome/settings-daemon/plugins/power".sleep-inactive-ac-type = "nothing";
+        #"org/gnome/desktop/session".idle-delay = 480;
+        
+      };
+    };
+  };
+}
