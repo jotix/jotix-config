@@ -27,9 +27,10 @@
 
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
         "org/gnome/nautilus/icon-view".default-zoom-level = "small";
-        #"org/gnome/Console".last-window-size = lib.gvariant.mkTuple [1200 800];
         "org/gnome/settings-daemon/plugins/power".sleep-inactive-ac-type = "nothing";
-        #"org/gnome/desktop/session".idle-delay = 480;
+        "org/gnome/desktop/session".idle-delay = lib.gvariant.mkUint32 480;
+        "org/gnome/desktop/screensaver".lock-enabled = false;
+        "org/gnome/desktop/notifications".show-banners = false;
         
       };
     };
