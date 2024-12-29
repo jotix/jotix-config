@@ -1,3 +1,8 @@
+# Nvim Module
+
+{ config, pkgs, lib, ... }:
+
+let neovim-config = ''
 -- editor config ---------------------------------------------------------------
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -100,3 +105,42 @@ lsp_zero.on_attach(function(client, bufnr)
   -- to learn the available actions
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
+'';
+    
+in
+
+{
+  options.neovim.enable = lib.mkEnableOption "Enable Neovim";
+
+  config = lib.mkIf(config.neovim.enable) {
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        vim-nix
+        vim-startify
+        lualine-nvim
+        telescope-nvim
+        plenary-nvim
+        nvim-treesitter
+        nvim-treesitter-parsers.python
+        nvim-treesitter-parsers.haskell
+        nvim-treesitter-parsers.c
+        undotree
+        nerdtree
+        toggleterm-nvim
+        tokyonight-nvim
+        lsp-zero-nvim
+      ];
+    };
+
+    xdg.configFile = {
+      "nvim/init.lua" = {
+        enable = true;
+        text = neovim-config;
+      };
+    };
+  };
+}

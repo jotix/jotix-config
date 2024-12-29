@@ -1,3 +1,7 @@
+### Kate Module
+
+{ config, lib, pkgs, ... }:
+let kate-config = ''
 [General]
 Allow Tab Scrolling=true
 Auto Hide Tabs=false
@@ -201,3 +205,18 @@ SymbolExpand=true
 SymbolSort=false
 SymbolTree=true
 TypeFormatting=false
+'';
+in
+{
+  options.kate.enable = lib.mkEnableOption "Enable Kate";
+
+  config = lib.mkIf(config.kate.enable) {
+
+    xdg.configFile = {
+      "katerc" = {
+        enable = true;
+        text = kate-config;
+      };
+    };
+  };
+}

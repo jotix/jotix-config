@@ -4,12 +4,12 @@
   
   imports = [
     ./emacs/emacs.nix
-    ./kate/kate.nix
-    ./neovim/neovim.nix
-    ./openttd/openttd.nix
     ./dconf-settings.nix
     ./helix.nix
+    ./kate.nix
     ./kitty.nix
+    ./neovim.nix
+    ./openttd.nix
   ];
 
   ### default enable modules

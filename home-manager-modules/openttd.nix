@@ -1,3 +1,8 @@
+### OpenTTD Module
+
+{ config, lib, pkgs, ... }:
+
+let openttd-config = ''
 
 [misc]
 display_opt = SHOW_TOWN_NAMES|SHOW_STATION_NAMES|SHOW_SIGNS|FULL_ANIMATION|FULL_DETAIL|WAYPOINTS|SHOW_COMPETITOR_SIGNS
@@ -483,3 +488,23 @@ none =
 version_string = 14.1
 version_number = 1E086D64
 ini_version = 7
+'';
+in
+{
+  options.openttd.enable = lib.mkEnableOption "Enable Open Transport Tycoon Deluxe";
+  
+  config = lib.mkIf(config.openttd.enable) {
+
+    home.packages = with pkgs; [
+      openttd
+    ];
+    
+    xdg.configFile = {
+      "openttd/openttd.cfg" = {
+        enable = true;
+        text = openttd-config;
+      };
+    };
+
+  };
+}
