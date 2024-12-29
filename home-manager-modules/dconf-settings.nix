@@ -28,10 +28,19 @@
         "org/gnome/nautilus/icon-view".default-zoom-level = "small";
         "org/gnome/settings-daemon/plugins/power".sleep-inactive-ac-type = "nothing";
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-        "org/gnome/desktop/session".idle-delay = lib.gvariant.mkUint32 480;
+        "org/gnome/desktop/session".idle-delay = lib.hm.gvariant.mkUint32 480;
         "org/gnome/desktop/screensaver".lock-enabled = false;
         "org/gnome/desktop/notifications".show-banners = false;
         "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
+        "org/gnome/Console".last-window-size = lib.hm.gvariant.mkTuple [1200 900];
+        "org/gnome/shell".favorite-apps = [
+          "org.gnome.Nautilus.desktop"
+          "firefox.desktop"
+          "org.gnome.Extensions.desktop"
+          "emacs.desktop"
+          "steam.desktop"
+          "org.gnome.Console.desktop"
+        ];
         
       };
     };
