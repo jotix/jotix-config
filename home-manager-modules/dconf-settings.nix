@@ -31,6 +31,7 @@
         "org/gnome/desktop/session".idle-delay = lib.gvariant.mkUint32 480;
         "org/gnome/desktop/screensaver".lock-enabled = false;
         "org/gnome/desktop/notifications".show-banners = false;
+        "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
         
       };
     };
