@@ -25,9 +25,9 @@
           ];
         };
 
-        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
         "org/gnome/nautilus/icon-view".default-zoom-level = "small";
         "org/gnome/settings-daemon/plugins/power".sleep-inactive-ac-type = "nothing";
+        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
         "org/gnome/desktop/session".idle-delay = lib.gvariant.mkUint32 480;
         "org/gnome/desktop/screensaver".lock-enabled = false;
         "org/gnome/desktop/notifications".show-banners = false;
