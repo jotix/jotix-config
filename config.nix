@@ -99,7 +99,7 @@
     pulse.enable = true;
   };
 
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
