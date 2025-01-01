@@ -4,7 +4,7 @@
 
 {
   options.dconf-settings.enable = lib.mkEnableOption "Enable dconf-settings";
-  
+
   config = lib.mkIf(config.dconf-settings.enable) {
     dconf = {
       enable = true;
@@ -18,8 +18,8 @@
             # field (look at the following example).
             pkgs.gnomeExtensions.tiling-assistant.extensionUuid
             pkgs.gnomeExtensions.dash-to-dock.extensionUuid
-            
-            # Alternatively, you can manually pass UUID as a string.  
+
+            # Alternatively, you can manually pass UUID as a string.
             # "blur-my-shell@aunetx"
             # ...
           ];
@@ -37,11 +37,13 @@
           "org.gnome.Nautilus.desktop"
           "firefox.desktop"
           "org.gnome.Extensions.desktop"
+          "dev.zed.Zed.desktop"
           "emacs.desktop"
           "steam.desktop"
           "org.gnome.Console.desktop"
+          "org.gnome.Calculator.desktop"
         ];
-        
+
       };
     };
   };
