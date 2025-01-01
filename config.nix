@@ -1,6 +1,6 @@
 # default configuration
 
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -8,7 +8,7 @@
     ./hardware-config.nix
     ./modules/default.nix
   ];
- 
+
   nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators"];
 
   nixpkgs.config.allowUnfree = true;
@@ -87,7 +87,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "bak";
-  
+
   ### servicess ################################################################
 
   ### pipewire
@@ -97,8 +97,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  }; 
- 
+  };
+
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
     exfat
@@ -129,7 +129,7 @@
     vial
     spotify
     gimp
-    firefox
+    google-chrome
     rclone
     libreoffice
     inkscape
@@ -169,8 +169,8 @@
 
   ### virtualizations ##########################################################
   virtualisation = {
-    libvirtd = { 
-      enable = true; 
+    libvirtd = {
+      enable = true;
       qemu = {
         ovmf = {
           enable = true;
@@ -186,5 +186,5 @@
     package = pkgs.virt-manager;
   };
   #virtualisation.tpm.enable = true;
-  
+
 }

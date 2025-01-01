@@ -34,11 +34,12 @@
         "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
         "org/gnome/Console".last-window-size = lib.hm.gvariant.mkTuple [1200 900];
         "org/gnome/shell".favorite-apps = [
+          "google-chrome.desktop"
           "org.gnome.Nautilus.desktop"
-          "firefox.desktop"
+          #"firefox.desktop"
           "org.gnome.Extensions.desktop"
           "dev.zed.Zed.desktop"
-          "emacs.desktop"
+          #"emacs.desktop"
           "steam.desktop"
           "org.gnome.Console.desktop"
           "org.gnome.Calculator.desktop"

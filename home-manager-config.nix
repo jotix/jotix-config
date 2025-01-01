@@ -1,6 +1,6 @@
 # HomeManager Default Module
 
-{ lib, ... }:
+{ ... }:
 
 {
   home-manager.users.jotix = {
