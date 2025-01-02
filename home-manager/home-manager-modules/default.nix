@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  
+
   imports = [
     ./emacs/emacs.nix
     ./dconf-settings.nix
@@ -20,5 +20,5 @@
   # neovim.enable = lib.mkDefault true;
   # dconf-settings.enable = lib.mkDefault true;
   zed.enable = lib.mkDefault true;
-  
+
 }
