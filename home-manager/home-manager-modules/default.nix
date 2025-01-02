@@ -7,7 +7,6 @@
     ./dconf-settings.nix
     ./ghostty.nix
     ./helix.nix
-    ./kate.nix
     ./kitty.nix
     ./neovim.nix
     ./openttd.nix
