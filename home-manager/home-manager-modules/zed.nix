@@ -1,10 +1,10 @@
 ### zed Module
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.zed.enable = lib.mkEnableOption "Enable zed editor";
-  
+
   config = lib.mkIf(config.zed.enable) {
 
     programs.zed-editor = {

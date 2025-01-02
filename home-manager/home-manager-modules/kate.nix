@@ -1,6 +1,6 @@
 ### Kate Module
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 let kate-config = ''
 [General]
 Allow Tab Scrolling=true

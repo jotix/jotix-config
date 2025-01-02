@@ -4,8 +4,6 @@
 
 {
   imports = [
-    ./home-manager/home.nix
-    ./hardware-config.nix
     ./modules/default.nix
   ];
 
@@ -83,10 +81,6 @@
     };
     defaultUserShell = pkgs.bash;
   };
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.backupFileExtension = "bak";
 
   ### servicess ################################################################
 

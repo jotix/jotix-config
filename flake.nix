@@ -9,26 +9,41 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
+#let hm-config = {
+#home-manager.useGlobalPkgs = true;
+#home-manager.useUserPackages = true;
+#home-manager.backupFileExtension = "bak";
+#home-manager.users.jotix = import ./home-manager/home.nix;
+#};
+#in
 
-      jtx-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+    jtx-nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
         modules = [
           ./hosts/jtx-config.nix
           ./config.nix
+          ./hardware-config.nix
           home-manager.nixosModules.home-manager
-        ];
-      };
 
-      ffm-nixos = nixpkgs.lib.nixosSystem {
+        ];
+    };
+
+    ffm-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/ffm-config.nix
           ./config.nix
+          ./hardware-config.nix
           home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "bak";
+            home-manager.users.jotix = import ./home-manager/home.nix;
+          }
         ];
-      };
-
     };
+
   };
+
 }

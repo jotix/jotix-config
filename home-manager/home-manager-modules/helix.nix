@@ -1,6 +1,6 @@
 ### Helix Module
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.helix.enable = lib.mkEnableOption "Enable Helix text editor";
@@ -22,5 +22,5 @@
       nvim = "hx";
     };
   };
-  
+
 }

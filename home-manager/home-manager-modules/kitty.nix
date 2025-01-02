@@ -1,10 +1,10 @@
 ### Kitty Module
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.kitty.enable = lib.mkEnableOption "Enable Kitty Terminal emulator";
-  
+
   config = lib.mkIf(config.kitty.enable) {
 
     programs.kitty = {
@@ -25,6 +25,6 @@
         "ctrl+w" = "close_tab";
       };
     };
-    
+
   };
 }
