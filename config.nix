@@ -142,7 +142,6 @@
     ghostscript
     rose-pine-icon-theme
     numix-cursor-theme
-    ghostty
   ];
 
   fonts.packages = with pkgs; [

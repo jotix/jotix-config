@@ -70,13 +70,14 @@
 
     programs.zoxide.enable = true;
 
-    xdg.configFile."ghostty/config" = {
+    programs.ghostty = {
       enable = true;
-      text = ''
-        font-size = 10
-        window-height = 48
-        window-width = 140
-      '';
+      enableBashIntegration = true;
+      settings = {
+        font-size = 10;
+        window-height = 48;
+        window-width = 140;
+      };
     };
 
   };
