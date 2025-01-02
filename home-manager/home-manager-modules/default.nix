@@ -5,11 +5,13 @@
   imports = [
     ./emacs/emacs.nix
     ./dconf-settings.nix
+    ./ghostty.nix
     ./helix.nix
     ./kate.nix
     ./kitty.nix
     ./neovim.nix
     ./openttd.nix
+    ./zed.nix
   ];
 
   ### default enable modules
@@ -17,5 +19,6 @@
   openttd.enable = lib.mkDefault true;
   # neovim.enable = lib.mkDefault true;
   # dconf-settings.enable = lib.mkDefault true;
+  zed.enable - lib.mkDefault true;
   
 }
