@@ -3,7 +3,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  options.OPTION.enable = lib.mkEnableOption "Enable zed editor";
+  options.zed.enable = lib.mkEnableOption "Enable zed editor";
   
   config = lib.mkIf(config.zed.enable) {
 
