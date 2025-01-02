@@ -4,7 +4,7 @@
 
 {
   imports = [
-    ./home-manager-config.nix
+    ./home-manager/home.nix
     ./hardware-config.nix
     ./modules/default.nix
   ];

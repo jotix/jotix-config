@@ -39,10 +39,12 @@
           #"firefox.desktop"
           "org.gnome.Extensions.desktop"
           "dev.zed.Zed.desktop"
+          "com.mitchellh.ghostty.desktop"
           #"emacs.desktop"
           "steam.desktop"
-          "org.gnome.Console.desktop"
+          #"org.gnome.Console.desktop"
           "org.gnome.Calculator.desktop"
+          "org.gnome.tweaks.desktop"
         ];
 
       };

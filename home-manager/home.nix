@@ -70,5 +70,14 @@
 
     programs.zoxide.enable = true;
 
+    xdg.configFile."ghostty/config" = {
+      enable = true;
+      text = ''
+        font-size = 10
+        window-height = 48
+        window-width = 140
+      '';
+    };
+
   };
 }
