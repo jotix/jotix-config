@@ -23,7 +23,6 @@
     options = [ "subvol=/@nix" ];
   };
 
-
   ### home
   fileSystems."/home" = {
     device = "/dev/disk/by-label/NixOS";
@@ -51,12 +50,6 @@
     fsType = "btrfs";
     options = [ "subvol=/" ];
   };
-  
-  ### Ventoy
-  # fileSystems."/mnt/Ventoy" = {
-  #  device = "/dev/disk/by-label/Ventoy";
-  #  fsType = "exfat";
-  # };
 
   ### swap
   swapDevices = [ {
