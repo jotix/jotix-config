@@ -19,6 +19,6 @@
   openttd.enable = lib.mkDefault true;
   # neovim.enable = lib.mkDefault true;
   # dconf-settings.enable = lib.mkDefault true;
-  zed.enable - lib.mkDefault true;
+  zed.enable = lib.mkDefault true;
   
 }
