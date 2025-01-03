@@ -45,6 +45,7 @@
           #"org.gnome.Console.desktop"
           "org.gnome.Calculator.desktop"
           "org.gnome.tweaks.desktop"
+          "chrome-knipfmibhjlpioflafbpemngnoncknab-Default.desktop"
         ];
 
       };
