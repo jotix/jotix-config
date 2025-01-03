@@ -1,11 +1,16 @@
 ### Cups Module
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.cups.enable = lib.mkEnableOption "Enable Cups Printing Service";
-  
-  config = lib.mkIf(config.cups.enable) {
+
+  config = lib.mkIf (config.cups.enable) {
 
     services = {
       printing = {
@@ -13,8 +18,8 @@
         drivers = [
           pkgs.brlaser
           pkgs.cups-filters
-          (pkgs.callPackage ./cups-hprtpos.nix {})
-          (pkgs.callPackage ./cups-xprinterpos.nix {})
+          (pkgs.callPackage ./cups-hprtpos.nix { })
+          (pkgs.callPackage ./cups-xprinterpos.nix { })
         ];
       };
       avahi = {
@@ -25,5 +30,3 @@
     };
   };
 }
-
-

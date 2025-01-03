@@ -1,11 +1,15 @@
 ### Syncthing Module
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 
 {
   options.syncthing.enable = lib.mkEnableOption "Enable Syncthing service";
-  
-  config = lib.mkIf(config.syncthing.enable) {
+
+  config = lib.mkIf (config.syncthing.enable) {
 
     services.syncthing = {
       enable = true;

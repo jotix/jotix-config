@@ -5,7 +5,7 @@
 {
   options.kitty.enable = lib.mkEnableOption "Enable Kitty Terminal emulator";
 
-  config = lib.mkIf(config.kitty.enable) {
+  config = lib.mkIf (config.kitty.enable) {
 
     programs.kitty = {
       enable = true;

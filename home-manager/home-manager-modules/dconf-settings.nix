@@ -1,11 +1,16 @@
 ### dconf-settiongs Module
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.dconf-settings.enable = lib.mkEnableOption "Enable dconf-settings";
 
-  config = lib.mkIf(config.dconf-settings.enable) {
+  config = lib.mkIf (config.dconf-settings.enable) {
     dconf = {
       enable = true;
       settings = {
@@ -32,7 +37,10 @@
         "org/gnome/desktop/screensaver".lock-enabled = false;
         "org/gnome/desktop/notifications".show-banners = false;
         "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
-        "org/gnome/Console".last-window-size = lib.hm.gvariant.mkTuple [1200 900];
+        "org/gnome/Console".last-window-size = lib.hm.gvariant.mkTuple [
+          1200
+          900
+        ];
         "org/gnome/shell".favorite-apps = [
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"

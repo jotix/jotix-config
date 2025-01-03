@@ -1,4 +1,12 @@
-{ stdenv, cups, lib, glibc, fetchFromGitHub, gcc-unwrapped, autoPatchelfHook }:
+{
+  stdenv,
+  cups,
+  lib,
+  glibc,
+  fetchFromGitHub,
+  gcc-unwrapped,
+  autoPatchelfHook,
+}:
 
 stdenv.mkDerivation {
 
@@ -17,8 +25,8 @@ stdenv.mkDerivation {
     autoPatchelfHook
   ];
 
-  buildInputs = [ 
-    cups 
+  buildInputs = [
+    cups
     glibc
     gcc-unwrapped
   ];
@@ -36,5 +44,5 @@ stdenv.mkDerivation {
     maintainers = with maintainers; [ jotix ];
     license = licenses.bsd2;
   };
-  
+
 }

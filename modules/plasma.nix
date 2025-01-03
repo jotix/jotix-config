@@ -1,11 +1,16 @@
 ### Plasma Module
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.plasma.enable = lib.mkEnableOption "Enable KDE Plasma Desktop Environment";
 
-  config = lib.mkIf(config.plasma.enable) {
+  config = lib.mkIf (config.plasma.enable) {
 
     home-manager.users.jotix.kitty.enable = lib.mkDefault true;
 

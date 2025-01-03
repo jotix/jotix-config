@@ -7,7 +7,11 @@
     ./modules/default.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+    "pipe-operators"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -40,7 +44,10 @@
       enable = true;
       dns = "none";
     };
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    nameservers = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
   };
 
   ### environment ##############################################################
@@ -53,8 +60,9 @@
       gr = "gitroot";
       google_drive_upload = "rclone copy ~/Documents jujodeve:";
       gdu = "google_drive_upload";
-      "2monitors" = "kscreen-doctor output.DP-1.enable output.DP-1.position.-1920,450 output.HDMI-A-1.position.0,0";
-      "1monitor"="kscreen-doctor output.DP-1.disable output.HDMI-A-1.position.0,0";
+      "2monitors" =
+        "kscreen-doctor output.DP-1.enable output.DP-1.position.-1920,450 output.HDMI-A-1.position.0,0";
+      "1monitor" = "kscreen-doctor output.DP-1.disable output.HDMI-A-1.position.0,0";
     };
   };
 
@@ -67,9 +75,9 @@
   ];
 
   i18n.extraLocaleSettings = {
-    LANG     = "en_US.UTF-8";
+    LANG = "en_US.UTF-8";
     LANGUAGE = "en_US.UTF-8";
-    LC_ALL   = "es_AR.UTF-8";
+    LC_ALL = "es_AR.UTF-8";
   };
 
   ### users ####################################################################
@@ -77,7 +85,11 @@
     users.jotix = {
       isNormalUser = true;
       description = "jotix";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "libvirtd"
+      ];
     };
     defaultUserShell = pkgs.bash;
   };
@@ -106,6 +118,7 @@
     cmake
     gcc
     nixd
+    nixfmt-rfc-style
     zip
     unzip
     p7zip

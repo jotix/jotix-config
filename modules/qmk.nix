@@ -1,11 +1,16 @@
 ### QMK Module
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.qmk.enable = lib.mkEnableOption "Enable QMK hayboard firmware";
-  
-  config = lib.mkIf(config.qmk.enable) {
+
+  config = lib.mkIf (config.qmk.enable) {
 
     hardware.keyboard.qmk.enable = true;
 
@@ -14,6 +19,6 @@
       qmk-udev-rules
       vial
     ];
-    
+
   };
 }

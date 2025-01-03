@@ -1,11 +1,16 @@
 ### Gnome Module
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.gnome.enable = lib.mkEnableOption "Enable Gnome Desktop Environment";
 
-  config = lib.mkIf(config.gnome.enable) {
+  config = lib.mkIf (config.gnome.enable) {
 
     services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
