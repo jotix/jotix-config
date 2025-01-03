@@ -19,6 +19,6 @@
   # neovim.enable = lib.mkDefault true;
   dconf-settings.enable = lib.mkDefault true;
   ghostty.enable = true;
-  # zed.enable = lib.mkDefault true;
+  zed.enable = lib.mkDefault true;
 
 }
