@@ -42,15 +42,12 @@
           900
         ];
         "org/gnome/shell".favorite-apps = [
-          "firefox.desktop"
+          "google-chrome.desktop"
           "org.gnome.Nautilus.desktop"
-          #"firefox.desktop"
           "org.gnome.Extensions.desktop"
           "dev.zed.Zed.desktop"
           "com.mitchellh.ghostty.desktop"
-          #"emacs.desktop"
           "steam.desktop"
-          #"org.gnome.Console.desktop"
           "org.gnome.Calculator.desktop"
           "org.gnome.tweaks.desktop"
           "chrome-knipfmibhjlpioflafbpemngnoncknab-Default.desktop"
