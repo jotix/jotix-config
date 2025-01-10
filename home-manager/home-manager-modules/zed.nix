@@ -20,9 +20,9 @@
           light = "One Light";
           dark = "One Dark";
         };
-        buffer_font_family = "Jetbrains Mono";
+        buffer_font_family = "JetBrains Mono";
         terminal = {
-          font_family = "Jetbrains Mono";
+          font_family = "JetBrains Mono";
           line_height = "standard";
         };
         tab_size = 2;
