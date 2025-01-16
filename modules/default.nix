@@ -14,7 +14,7 @@
 
   cups.enable = lib.mkDefault true;
   plasma.enable = lib.mkDefault true;
-  google-chrome = lib.mkDefault true;
+  google-chrome.enable = lib.mkDefault true;
   steam.enable = lib.mkDefault true;
 
 }

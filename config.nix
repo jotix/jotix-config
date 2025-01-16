@@ -107,6 +107,14 @@
 
   # services.flatpak.enable = true;
 
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     google-chrome = prev.google-chrome.override {
+  #       commandLineArgs = "--password-store=gnome";
+  #     };
+  #   })
+  # ];
+
   ### packages #################################################################
   environment.systemPackages = with pkgs; [
     exfat
@@ -139,6 +147,8 @@
     spotify
     gimp
     firefox
+    # google-chrome
+    # gnome-keyring
     rclone
     libreoffice
     inkscape
