@@ -22,4 +22,8 @@
     default = "2";
   };
 
+  ### DE for filofem
+  gnome.enable = false;
+  plasma.enable = true;
+
 }
