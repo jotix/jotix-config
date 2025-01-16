@@ -4,6 +4,7 @@
   imports = [
     ./cups/default.nix
     ./gnome.nix
+    ./google-chrome.nix
     ./plasma.nix
     ./qmk.nix
     ./steam.nix
@@ -12,7 +13,8 @@
   ];
 
   cups.enable = lib.mkDefault true;
-  gnome.enable = lib.mkDefault true;
+  plasma.enable = lib.mkDefault true;
+  google-chrome.enable = lib.mkDefault true;
   steam.enable = lib.mkDefault true;
 
 }
