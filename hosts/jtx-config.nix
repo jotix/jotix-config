@@ -27,6 +27,11 @@ in
   ### bluetooth
   hardware.bluetooth.enable = true;
 
+  ### sddm refresh rate
+  services.xserver.displayManager.setupCommands = ''
+    kscreen-doctor output.HDMI-A-1.position.0,0 output.HDMI-A-1.mode.3840x2160@60
+  '';
+
   boot.kernelParams = [
     #"video=DP-1:1920x1080@60"
     "video=HDMI-A-1:3840x2160@60"
