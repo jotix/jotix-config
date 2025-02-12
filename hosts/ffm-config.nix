@@ -23,7 +23,7 @@
   # };
 
   ### DE for filofem
-  gnome.enable = false;
-  plasma.enable = true;
+  # gnome.enable = false;
+  # plasma.enable = true;
 
 }
