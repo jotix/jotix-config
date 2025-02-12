@@ -17,10 +17,10 @@
     ];
   };
 
-  boot.loader.grub = {
-    useOSProber = true;
-    default = "2";
-  };
+  # boot.loader.grub = {
+  #   useOSProber = true;
+  #   default = "2";
+  # };
 
   ### DE for filofem
   gnome.enable = false;
