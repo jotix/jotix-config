@@ -135,7 +135,6 @@
     vial
     spotify
     gimp
-    firefox
     rclone
     libreoffice
     inkscape
